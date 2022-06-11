@@ -1,0 +1,26 @@
+{
+  "name": "project3",
+  "version": "1.0.0",
+  "description": "habit tracker / mood tracker / budget tracker probably",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ssarahs-lab/project3.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ssarahs-lab/project3/issues"
+  },
+  "homepage": "https://github.com/ssarahs-lab/project3#readme",
+  "dependencies": {
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
