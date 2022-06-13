@@ -1,5 +1,6 @@
 HabitMakr - where big things come from small beginnings
 
+
 ## Technologies used
 Javascript, AJAX, NodeJS, ExpressJS, PostgreSQL client, PostgresQL
 
@@ -14,7 +15,15 @@ The app then displays daily/weekly/monthly progress in a variety of statistics a
 
 ## Installation instructions
 
+In PostgresQL: 
 
+    CREATE DATABASE habit_tracker;
+
+  
+
+In the terminal:
+
+    psql -d habit_tracker < schema.sql
 
 ## Unsolved problems
 
