@@ -5,6 +5,8 @@ require('dotenv').config()
 
 const expressSession = require('express-session');
 const pgSession = require('connect-pg-simple')(expressSession);
+
+//import routes
 const sessionController = require('./controllers/session')
 const usersController = require('./controllers/users')
 

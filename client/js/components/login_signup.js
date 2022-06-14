@@ -12,6 +12,23 @@ export function loginPage() {
         <button>Log In</button>
     </form>
     `
+    let form = document.getElementById('log-in-form')
+    form.addEventListener('submit', (event) => {
+        event.preventDefault()
+        const formData = new FormData(form)
+        const email = formData.get('email')
+        const password = formData.get('password')
+        const data = {
+            email: email,
+            password: password
+        }
+        axios.post('/api/session', data)
+        .then((response) => {
+            console.log(response)
+            page.innerHTML = `<h1>Login successful</h1>`
+        })
+    })
+
 }
 
 export function signupPage() {
@@ -20,6 +37,8 @@ export function signupPage() {
     page.innerHTML = `
     <form id="sign-up-form">
         <h1>Sign Up</h1>
+        <p>Username:</p>
+        <input type="text" name="username">
         <p>Email:</p>
         <input type="text" name="email">
         <p>Password:</p>
@@ -30,4 +49,35 @@ export function signupPage() {
         <button>Log In</button>
     </form>
     `
+
+    const signUpForm = document.getElementById('sign-up-form')
+    signUpForm.addEventListener('submit', function(e) {
+        e.preventDefault()
+        console.log("click")
+        const formData = new FormData(signUpForm) 
+        const name = formData.get('username')
+        const email = formData.get('email')
+        const password = formData.get('password')
+        const checkPassword = formData.get('check-password')
+        console.log(name, email, password, checkPassword)
+        const data = {
+            username: name,
+            email: email,
+            password: password,
+            checkPassword: checkPassword
+        }
+        axios.post('/api/users', data)
+            .then((response) => {
+                if(response.data.success){
+                    loginPage()
+                }
+            }).catch((error) => {
+                console.log(error)
+                if(document.querySelector('.error-msg')) {
+                    document.querySelector('.error-msg').remove()
+                }
+                const errorMsg = createNewElement('p', error.response.data.message, 'error-msg')
+                signUpForm.prepend(errorMsg)
+            })
+    })
 }
