@@ -1,3 +1,4 @@
-// import { loginPage } from './components/login.js'
+// import { loginPage, signupPage } from './components/login.js'
 
 // loginPage()
+// signupPage()
