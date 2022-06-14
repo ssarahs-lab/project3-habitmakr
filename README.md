@@ -30,6 +30,7 @@ In the terminal:
     npm install nodemon
     npm install pg 
     npm install express-sessiom connect-pg-simple --save
+    npm install bcrypt
     npm start
 
 ## Unsolved problems
