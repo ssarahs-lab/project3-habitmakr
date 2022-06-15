@@ -4,22 +4,28 @@ const db = require('../db/db.js')
 const router = express.Router()
 
 router.post('/', (request, response) => {
+    //recieves form data from frontend
     const name = request.body.username
     const email = request.body.email
     const password = request.body.password
     const checkPassword = request.body.checkPassword
     const checkPassWordCharacters = /^[a-zA-Z0-9~_&*%@$]+$/
  
+    //creates the hashed password to store
     const generateHash = (password) => {
         return bcrypt.hashSync(password, bcrypt.genSaltSync(10), null)
     }
 
+    //Sends an error message if missing fields
     if(!name || !email || !password || !checkPassword) {
         response.status(400)
         response.json({ success: false, message: "Please complete all fields" })
         return
     }
 
+    //check database to check if email already used
+    //then checks all fields are correctly filled in
+   
     const sqlEmail = `
         SELECT email FROM users
     `
@@ -58,6 +64,7 @@ router.post('/', (request, response) => {
                 })
                 return
             } else {
+                 //adds user to database if successful
                 const password_hash = generateHash(password)
                 const sql = `
                     INSERT INTO users (username, email, password_hash) 

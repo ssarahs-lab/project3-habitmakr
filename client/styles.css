@@ -1,0 +1,5 @@
+
+/* use with variable.classList.toggle('toggle-display') to show and hide an element */
+.toggle-display {
+    display: none;
+}
