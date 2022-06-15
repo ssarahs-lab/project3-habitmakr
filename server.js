@@ -18,6 +18,7 @@ const pg = require("pg")
 const port = 3000
 
 
+
 //set session
 app.use(expressSession({
   store: new pgSession({
@@ -35,8 +36,15 @@ app.use('/api/session', sessionController)
 app.use('/api/users', usersController)
 
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
+app.get('/api/categories', (request, response) => {
+  
+
+  const sql = "SELECT * FROM identities;"
+  db.query(sql)
+  .then((dbResult) => {
+    console.log(dbResult.rows)
+    response.json(dbResult.rows)
+  })
 })
 
 
