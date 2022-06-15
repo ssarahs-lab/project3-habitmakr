@@ -22,19 +22,16 @@ export function renderHeader() {
 //     const logoutButton = document.getElementById("log-out-btn");
 //     logoutButton.addEventListener('click', handleLogout)
 
-}
-
-
- 
     header.innerHTML = 
         `<p> <span id="username"></span></p>
-        <button id= "log-in">Log in</button>
-        <p> <span id="user"></span></p>
-        <button id= "signup">Sign up</button>
+        <button id= "login-btn">Log in</button>
+        <button id="logout-btn">Log out</button>
+        <button id= "signup-btn">Sign up</button>
         `
-    const loginButton = document.getElementById("log-in");
+    const loginButton = document.getElementById("login-btn");
     loginButton.addEventListener('click', loginPage)
-    const signupButton = document.getElementById("signup");
+    const signupButton = document.getElementById("signup-btn");
     signupButton.addEventListener('click', signupPage)
+    const logoutButton = document.getElementById("logout-btn");
+    logoutButton.addEventListener('click', handleLogout)
 }
->>>>>>> origin/main
