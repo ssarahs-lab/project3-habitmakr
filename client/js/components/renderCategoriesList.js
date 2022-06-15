@@ -9,19 +9,30 @@ export function renderCategoriesList(){
     .get("api/categories")
     .then((response) => {
 
-        const a = document.createElement('a');
+        let divCard = document.createElement('div');
+        let categoryLink = document.createElement('a');
+        let img = document.createElement('img');
+       
+
+        divCard.classList.add("card")
+
         response.data.forEach((category)=> {
 
           categoryNames.push(category.identities);
           categoryImgURL.push(category.image_related_identity_url)
 
           console.log(categoryNames)
-
-           
-            a.setAttribute('href', '#');
-            a.innerHTML = category.identities;
-
             
+          page.appendChild(divCard)
+        
+            categoryLink.setAttribute('href', '#');
+            categoryLink.innerHTML = category.identities;
+
+            img.src = category.image_related_identity_url
+
+
+            divCard.appendChild(img)
+            divCard.appendChild(categoryLink)
 
         })
 
