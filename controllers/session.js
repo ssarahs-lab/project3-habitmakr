@@ -34,7 +34,7 @@ router.post('/', (request, response) => {
             for(const user of dbResponse.rows) {
                 //if there is a match set the session cookies
                 if( user.email === email && isValidPassword(password, user.password_hash) ) {
-                    request.session.name = user.name
+                    request.session.username = user.username
                     request.session.userId = user.id
                     request.session.email = user.email
                     request.session.loggedIn = true
