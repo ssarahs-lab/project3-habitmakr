@@ -8,10 +8,7 @@ export function renderHeader() {
     let header = document.getElementById("header")
     header.innerHTML = "";
  
-    const page = document.getElementById("page")
-    page.className = "page";
-    header.appendChild(page)
-    page.innerHTML = 
+    header.innerHTML = 
         `<p> <span id="username"></span></p>
         <button id= "log-in">Log in</button>
         <p> <span id="user"></span></p>
