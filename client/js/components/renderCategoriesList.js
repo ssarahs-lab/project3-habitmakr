@@ -9,14 +9,16 @@ export function renderCategoriesList(){
     .get("api/categories")
     .then((response) => {
 
-        let divCard = document.createElement('div');
+        
+
+        response.data.forEach((category)=> {
+
+            let divCard = document.createElement('div');
         let categoryLink = document.createElement('a');
         let img = document.createElement('img');
        
 
         divCard.classList.add("card")
-
-        response.data.forEach((category)=> {
 
           categoryNames.push(category.identities);
           categoryImgURL.push(category.image_related_identity_url)
