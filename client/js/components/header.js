@@ -13,7 +13,7 @@ export function renderHeader() {
         <button id= "login-btn">Log in</button>
         <button id="logout-btn" style="display: none;">Log out</button>
         <button id= "signup-btn">Sign up</button>
-        <button id= "categories-btn">Add a habit</button>
+        <button id= "categories-btn" >Add a habit</button>
         `
     const loginButton = document.getElementById("login-btn");
     loginButton.addEventListener('click', loginPage)

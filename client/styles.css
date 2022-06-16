@@ -3,3 +3,7 @@
 .toggle-display {
     display: none;
 }
+
+.card > img {
+    width: 100px;
+}
