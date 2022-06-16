@@ -14,7 +14,7 @@ function isValidPassword(plainTextPassword, passwordHash) {
 router.get('/', (request, response) => {
     response.json({ 
         sessionName: request.session.username,
-        sessionId: request.session.id,
+        sessionId: request.session.userId,
         sessionEmail: request.session.email,
         sessionLoggedIn: request.session.loggedIn
     })

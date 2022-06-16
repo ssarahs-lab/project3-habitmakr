@@ -1,4 +1,4 @@
-import {loginPage, signupPage, handleLogout} from './login_signup.js'
+import {loginPage, signupPage, handleLogout, getUser} from './login_signup.js'
 import{renderCategoriesList} from './renderCategoriesList.js'
 console.log("header.js is running")
 
@@ -23,5 +23,7 @@ export function renderHeader() {
     logoutButton.addEventListener('click', handleLogout)
     const categoriesButton = document.getElementById("categories-btn");
     categoriesButton.addEventListener('click', renderCategoriesList)
+
+    getUser()
     
 }
