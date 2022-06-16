@@ -8,14 +8,20 @@ INSERT INTO identities (identities, image_related_identity_url) VALUES ('money b
 
 
 --habits
+
+--gymbunny
 INSERT INTO habits_list (habit, type, identities_id) VALUES ('Excercise for atleast 25 minutes.', true, 1);
 INSERT INTO habits_list (habit, type, identities_id) VALUES ('Avoid unhealthy food.', true, 1);
 
+--functioning adult
 INSERT INTO habits_list (habit, type, identities_id) VALUES ('Clean the house.', true, 2);
 INSERT INTO habits_list (habit, type, identities_id) VALUES ('Wake up early.', true, 2);
 
+--reader
 INSERT INTO habits_list (habit, type, identities_id) VALUES ('Read at least 25 minutes.', true, 3);
 
+--smart cookie
 INSERT INTO habits_list (habit, type, identities_id) VALUES ('Spend atleast 30 minutes studying.', true, 4);
 
+--money bags
 INSERT INTO habits_list (habit, type, identities_id) VALUES ('Set aside money to invest.', true, 5);
