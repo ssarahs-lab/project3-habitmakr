@@ -48,6 +48,18 @@ app.get('/api/categories', (request, response) => {
 })
 
 
+// add a custom habit
+app.post('/api/addcustomhabit', (request, response)=>{
+
+  const sql = 'INSERT INTO identities(identities, image_related_identity_url) VALUES ($1, $2);'
+
+  // the URL below generates a random image from unsplash
+  db.query(sql, [request.body.identity, "https://source.unsplash.com/random/800x800/?img=1"])
+  .then(dbResult => {
+    response.json({success: true})
+  })
+})
+
 
 app.listen(port, () => {
   console.log(`App listening on port http://localhost:${port}`)

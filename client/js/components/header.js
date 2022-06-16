@@ -1,5 +1,6 @@
 import {loginPage, signupPage, handleLogout, getUser} from './login_signup.js'
 import{renderCategoriesList} from './renderCategoriesList.js'
+import{renderAddHabitForm} from './addHabit.js'
 console.log("header.js is running")
 
 
@@ -13,7 +14,8 @@ export function renderHeader() {
         <button id= "login-btn">Log in</button>
         <button id="logout-btn" style="display: none;">Log out</button>
         <button id= "signup-btn">Sign up</button>
-        <button id= "categories-btn">Add a habit</button>
+        <button id= "categories-btn">Choose a premade habit</button>
+        <button id= "custom-habit-btn">Add a custom habit</button>
         `
     const loginButton = document.getElementById("login-btn");
     loginButton.addEventListener('click', loginPage)
@@ -23,6 +25,8 @@ export function renderHeader() {
     logoutButton.addEventListener('click', handleLogout)
     const categoriesButton = document.getElementById("categories-btn");
     categoriesButton.addEventListener('click', renderCategoriesList)
+    const customHabitButton = document.getElementById("custom-habit-btn")
+    customHabitButton.addEventListener('click', renderAddHabitForm)
 
     getUser()
     

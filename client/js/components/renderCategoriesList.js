@@ -33,8 +33,9 @@ export function renderCategoriesList(){
             img.src = category.image_related_identity_url
 
 
-            divCard.appendChild(img)
+          
             divCard.appendChild(categoryLink)
+            divCard.appendChild(img)
 
         })
 
