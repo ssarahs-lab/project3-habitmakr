@@ -137,14 +137,18 @@ export function getUser() {
         .then((response) => {
             const logoutBtn = document.getElementById('logout-btn')
             const username = document.getElementById('username')
+            const categoriesBtn = document.getElementById('categories-btn')
             if(response.data.sessionName) {
                 console.log(response.data.sessionName)
                 username.textContent = `Hello ${response.data.sessionName}`
                 logoutBtn.style.display = 'block'
+                categoriesBtn.style.display = 'block'
 
             } else {
                 username.textContent = ''
                 logoutBtn.style.display = 'none'
+                categoriesBtn.style.display = 'none'
+
             }
         })
 }

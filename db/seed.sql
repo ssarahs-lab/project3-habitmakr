@@ -7,4 +7,15 @@ INSERT INTO identities (identities, image_related_identity_url) VALUES ('smart c
 INSERT INTO identities (identities, image_related_identity_url) VALUES ('money bags', 'https://images.unsplash.com/photo-1472417583565-62e7bdeda490?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80');
 
 
--- users
+--habits
+INSERT INTO habits_list (habit, type, identities_id) VALUES ('Excercise for atleast 25 minutes.', true, 1);
+INSERT INTO habits_list (habit, type, identities_id) VALUES ('Avoid unhealthy food.', true, 1);
+
+INSERT INTO habits_list (habit, type, identities_id) VALUES ('Clean the house.', true, 2);
+INSERT INTO habits_list (habit, type, identities_id) VALUES ('Wake up early.', true, 2);
+
+INSERT INTO habits_list (habit, type, identities_id) VALUES ('Read at least 25 minutes.', true, 3);
+
+INSERT INTO habits_list (habit, type, identities_id) VALUES ('Spend atleast 30 minutes studying.', true, 4);
+
+INSERT INTO habits_list (habit, type, identities_id) VALUES ('Set aside money to invest.', true, 5);
