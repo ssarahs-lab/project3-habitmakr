@@ -20,10 +20,12 @@ export function renderCategoriesList(){
             let img = document.createElement('img');
             let habitContainer = document.createElement('div')
 
-            
-        
 
-            divCard.classList.add("card")
+        divCard.classList.add("card")
+        divCard.classList.add("divCard")
+
+          divCard.style.backgroundImage = `url('${category.image_related_identity_url}')`
+
 
             categoryNames.push(category.identities);
             categoryImgURL.push(category.image_related_identity_url)
@@ -35,7 +37,7 @@ export function renderCategoriesList(){
             categoryLink.setAttribute('href', '#');
             categoryLink.innerHTML = category.identities;
 
-            img.src = category.image_related_identity_url
+            // img.src = category.image_related_identity_url
 
             // let habits = 
 
