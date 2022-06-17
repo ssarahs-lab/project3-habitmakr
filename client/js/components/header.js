@@ -9,11 +9,13 @@ export function renderHeader() {
     header.innerHTML = "";
 
     header.innerHTML = 
-        `<p> <span id="username"></span></p>
-        <button id= "login-btn">Log in</button>
-        <button id="logout-btn" style="display: none;">Log out</button>
-        <button id= "signup-btn">Sign up</button>
-        <button id= "categories-btn" >Add a habit</button>
+        `
+        <h1 id="title">Habit Makr</h1>
+        <p> <span id="username"></span></p>
+        <button id= "login-btn" class="btn nav-btn">Log in</button>
+        <button id="logout-btn" class="btn nav-btn" style="display: none;">Log out</button>
+        <button id= "signup-btn" class="btn nav-btn">Sign up</button>
+        <button id= "categories-btn" class="btn nav-btn">Add a habit</button>
         `
     const loginButton = document.getElementById("login-btn");
     loginButton.addEventListener('click', loginPage)
