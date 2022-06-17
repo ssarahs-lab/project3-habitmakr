@@ -19,9 +19,9 @@ export function renderCategoriesList(){
        
 
         divCard.classList.add("card")
+        divCard.classList.add("divCard")
 
-          categoryNames.push(category.identities);
-          categoryImgURL.push(category.image_related_identity_url)
+          divCard.style.backgroundImage = `url('${category.image_related_identity_url}')`
 
           console.log(categoryNames)
             
@@ -30,7 +30,7 @@ export function renderCategoriesList(){
             categoryLink.setAttribute('href', '#');
             categoryLink.innerHTML = category.identities;
 
-            img.src = category.image_related_identity_url
+            // img.src = category.image_related_identity_url
 
 
             divCard.appendChild(img)
