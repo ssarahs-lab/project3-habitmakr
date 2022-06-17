@@ -3,14 +3,14 @@ export function loginPage() {
     const page = document.getElementById('page')
     page.innerHTML = ''
     page.innerHTML = `
-    <form id="login-form">
+    <form id="login-form" class="form-control w-50 m-auto">
         <h1>Login</h1>
         <p>Email:</p>
-        <input type="text" name="email">
+        <input type="text" name="email" class="form-control">
         <p>Password:</p>
-        <input type="password" name="password">
+        <input type="password" name="password" class="form-control">
         <br>
-        <button>Log In</button>
+        <button class="btn">Log In</button>
     </form>
     `
     //access the login form data
@@ -58,18 +58,18 @@ export function signupPage() {
     const page = document.getElementById('page')
     page.innerHTML = ''
     page.innerHTML = `
-    <form id="sign-up-form">
+    <form id="sign-up-form" class="form-control w-50 m-auto">
         <h1>Sign Up</h1>
         <p>Username:</p>
-        <input type="text" name="username">
+        <input type="text" name="username" class="form-control">
         <p>Email:</p>
-        <input type="text" name="email">
+        <input type="text" name="email" class="form-control">
         <p>Password:</p>
-        <input type="password" name="password">
+        <input type="password" name="password" class="form-control">
         <p>Check Password</p>
-        <input type="password" name="check-password">
+        <input type="password" name="check-password" class="form-control">
         <br>
-        <button>Log In</button>
+        <button class="btn">Sign up</button>
     </form>
     `
 

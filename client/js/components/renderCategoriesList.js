@@ -6,6 +6,9 @@ export function renderCategoriesList(){
 
     let categoryNames = []
     let categoryImgURL = []
+    let categoryContainer = document.createElement('div')
+    categoryContainer.classList.add('category-container')
+    page.appendChild(categoryContainer)
 
     axios
     .get("api/categories")
@@ -21,10 +24,10 @@ export function renderCategoriesList(){
             let habitContainer = document.createElement('div')
 
 
-        divCard.classList.add("card")
-        divCard.classList.add("divCard")
+            divCard.classList.add("card")
+            divCard.classList.add("divCard")
 
-          divCard.style.backgroundImage = `url('${category.image_related_identity_url}')`
+            divCard.style.backgroundImage = `url('${category.image_related_identity_url}')`
 
 
             categoryNames.push(category.identities);
@@ -32,7 +35,7 @@ export function renderCategoriesList(){
 
             // console.log(categoryNames)
                 
-            page.appendChild(divCard)
+            categoryContainer.appendChild(divCard)
         
             categoryLink.setAttribute('href', '#');
             categoryLink.innerHTML = category.identities;
@@ -48,15 +51,16 @@ export function renderCategoriesList(){
             axios.get(`/api/categories/${category.identities_id}`)
                 .then((response) => {
                     response.data.forEach((newHabit) => {
-                        let paragraph = document.createElement('p')
+                        let newLi = document.createElement('li')
                         let checkbox = document.createElement('div')
                         checkbox.innerHTML = `
                             <input type="checkbox" id="${category.identities_id}">
                         `
-                        paragraph.classList.add('toggle-display')
-                        paragraph.textContent = newHabit.habit
-                        habitContainer.appendChild(paragraph)
-                        paragraph.appendChild(checkbox)
+                        newLi.classList.add('toggle-display')
+                        // newLi.classList.add("list-group-item")
+                        newLi.textContent = newHabit.habit
+                        habitContainer.append(newLi)
+                        newLi.appendChild(checkbox)
                     })
                 })
 
@@ -65,13 +69,12 @@ export function renderCategoriesList(){
             divCard.appendChild(categoryLink)
             divCard.appendChild(habitContainer)
 
-            categoryLink.addEventListener('click', function(e) {
+            divCard.addEventListener('click', function(e) {
                 e.preventDefault()
                 console.log(response)
-                let paragraph = habitContainer.querySelectorAll('p')
-                paragraph.forEach(p => p.classList.toggle('toggle-display'))
-                
-                
+                let newLi = habitContainer.querySelectorAll('li')
+                divCard.classList.toggle('toggle-background')
+                newLi.forEach((li) => li.classList.toggle('toggle-display'))
             })
 
         })
