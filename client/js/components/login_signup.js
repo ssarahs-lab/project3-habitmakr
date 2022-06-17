@@ -139,19 +139,25 @@ export function getUser() {
             const loginBtn = document.getElementById('login-btn')
             const signupBtn = document.getElementById('signup-btn')
             const username = document.getElementById('username')
+            const categoriesBtn = document.getElementById('categories-btn')
             if(response.data.sessionName) {
                 console.log(response.data.sessionName)
                 username.textContent = `Hello ${response.data.sessionName}`
                 logoutBtn.style.display = 'block'
+
                 loginBtn.style.display = 'none'
                 signupBtn.style.display = 'none'
                 
 
+
             } else {
                 username.textContent = ''
                 logoutBtn.style.display = 'none'
+
+
                 loginBtn.style.display = 'block'
                 signupBtn.style.display = 'block'
+
             }
         })
 }
