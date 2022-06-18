@@ -7,6 +7,7 @@ DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS identities;
 
 
+-- templated categories of default habits
 
 CREATE TABLE identities (
     identities_id SERIAL PRIMARY KEY,
@@ -23,6 +24,8 @@ CREATE TABLE users (
     account_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
+-- master / general public habits list
+
 CREATE TABLE habits_list (
     habits_list_id SERIAL PRIMARY KEY,
     habit VARCHAR(255),
@@ -31,20 +34,21 @@ CREATE TABLE habits_list (
     identities_id INTEGER REFERENCES identities(identities_id)
 );
 
--- the list of habits the user has chosen to implement
+-- user's master list of habits
 
 CREATE TABLE user_habits(
 
     user_habits_id SERIAL PRIMARY KEY,
+    habit_name VARCHAR(255),
     date_started TIMESTAMP NOT NULL DEFAULT NOW(),
-    date_completed TIMESTAMP NOT NULL DEFAULT NOW(),
+    date_completed TIMESTAMP,
     user_determined_frequency_of_reminder VARCHAR(255),
     habits_list_id INTEGER REFERENCES habits_list(habits_list_id),
     user_id INTEGER REFERENCES users(id)
 );
 
 
--- tracks the users habits regularly
+-- user's habits completed log
 
 CREATE TABLE user_habit_log (
     user_habit_log_ID SERIAL PRIMARY KEY,

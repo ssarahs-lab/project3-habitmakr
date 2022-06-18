@@ -22,11 +22,7 @@ export function renderAddHabitForm() {
                 
                 </select>
             </fieldset>
-            <fieldset>
-                
-                <label for="habit-category">What category would you say this habit falls under? </label><br>
-                <input type="text" name="habit-category">
-            </fieldset>
+        
             <button>Add Custom Habit</button>
         </form>
 
@@ -42,7 +38,8 @@ export function renderAddHabitForm() {
 
         let data = {
 
-                identity: formData.get('habitCategory')
+                habitname: formData.get('habitName'),
+                reminderfrequency: formData.get('frequencyOfReminder')
         }
 
         axios.post('/api/addcustomhabit', data)

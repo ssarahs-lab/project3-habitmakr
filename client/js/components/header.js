@@ -17,7 +17,9 @@ export function renderHeader() {
         <button id= "login-btn" class="btn nav-btn">Log in</button>
         <button id="logout-btn" class="btn nav-btn" style="display: none;">Log out</button>
         <button id= "signup-btn" class="btn nav-btn">Sign up</button>
-        <button id= "categories-btn" class="btn nav-btn">Add a habit</button>
+        <button id= "categories-btn" class="btn nav-btn">Choose a premade habit</button>
+        <button id= "custom-habit-btn" class="btn nav-btn">Add a custom habit</button>
+     
 
         `
     const loginButton = document.getElementById("login-btn");
