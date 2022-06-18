@@ -17,8 +17,10 @@ export function renderHeader() {
         <button id= "login-btn" class="btn nav-btn">Log in</button>
         <button id="logout-btn" class="btn nav-btn" style="display: none;">Log out</button>
         <button id= "signup-btn" class="btn nav-btn">Sign up</button>
+        <button id= "habit-dashboard-btn" class="btn nav-btn">Habits' Dashboard</button>
         <button id= "categories-btn" class="btn nav-btn">Choose a premade habit</button>
         <button id= "custom-habit-btn" class="btn nav-btn">Add a custom habit</button>
+        
      
 
         `
@@ -32,6 +34,8 @@ export function renderHeader() {
     categoriesButton.addEventListener('click', renderCategoriesList)
     const customHabitButton = document.getElementById("custom-habit-btn")
     customHabitButton.addEventListener('click', renderAddHabitForm)
+    const habitDashboardButton = document.getElementById("habit-dashboard-btn");
+    habitDashboardButton.addEventListener('click', renderHabitDashboard)
 
     getUser()
     

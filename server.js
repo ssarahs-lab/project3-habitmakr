@@ -71,6 +71,8 @@ app.post('/api/addcustomhabit', (request, response)=>{
   })
 })
 
+app.post('/api/userhabits')
+
 
 app.listen(port, () => {
   console.log(`App listening on port http://localhost:${port}`)

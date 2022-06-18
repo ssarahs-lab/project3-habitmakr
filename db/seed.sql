@@ -19,3 +19,4 @@ INSERT INTO habits_list (habit, type, identities_id) VALUES ('Read at least 25 m
 INSERT INTO habits_list (habit, type, identities_id) VALUES ('Spend atleast 30 minutes studying.', true, 4);
 
 INSERT INTO habits_list (habit, type, identities_id) VALUES ('Set aside money to invest.', true, 5);
+
