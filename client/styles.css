@@ -79,3 +79,7 @@
 .divCard > div > input {
     display: block;
 }
+
+#username {
+    line-height: 40px;
+}

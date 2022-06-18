@@ -1,3 +1,5 @@
+// user add custom habit
+
 export function renderAddHabitForm() {
 
     const page = document.getElementById('page')
@@ -15,15 +17,32 @@ export function renderAddHabitForm() {
             <fieldset>
                 <label for="frequencyOfReminder">Frequency of reminder</label><br>
                 <select id="frequencyOfReminder" name="frequencyOfReminder">
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
+                <option value="Daily">Daily</option>
+                <option value="Weekly">Weekly</option>
                 <option value="Fortnightly">Fortnightly</option>
-                <option value="monthly">Montlhy</option>
+                <option value="Monthly">Monthly</option>
+                <option value="Quarterly">Quarterly</option>
+                <option value="Yearly">Yearly</option>
                 
+
+                <div class="input-group mb-3">
+            <div class="input-group-prepend">
+
+
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="Frequency of Reminder" aria-haspopup="true" aria-expanded="false">Dropdown</button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="#">Action</a>
+      <a class="dropdown-item" href="#">Another action</a>
+      <a class="dropdown-item" href="#">Something else here</a>
+
+      </div>
+      </div >    
                 </select>
             </fieldset>
         
             <button>Add Custom Habit</button>
+
+            
         </form>
 
     `
@@ -50,5 +69,4 @@ export function renderAddHabitForm() {
     })
 
 }
-
 

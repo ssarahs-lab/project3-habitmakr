@@ -1,6 +1,7 @@
 import {loginPage, signupPage, handleLogout, getUser} from './login_signup.js'
 import{renderCategoriesList} from './renderCategoriesList.js'
 import{renderAddHabitForm} from './addHabit.js'
+import{renderHabitDashboard} from './renderHabitDashboard.js'
 console.log("header.js is running")
 
 
