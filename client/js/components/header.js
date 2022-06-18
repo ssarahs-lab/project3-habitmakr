@@ -1,6 +1,7 @@
 import {loginPage, signupPage, handleLogout, getUser} from './login_signup.js'
 import{renderCategoriesList} from './renderCategoriesList.js'
 import{renderAddHabitForm} from './addHabit.js'
+import {renderJournal} from './renderJournal.js'
 console.log("header.js is running")
 
 
@@ -19,6 +20,7 @@ export function renderHeader() {
         <button id= "signup-btn" class="btn nav-btn">Sign up</button>
         <button id= "categories-btn" class="btn nav-btn">Choose habit</button>
         <button id= "custom-habit-btn" class="btn nav-btn">Add habit</button>
+        <button id= "journal-entry-btn" class="btn nav-btn">Journal</button>
         `
     const loginButton = document.getElementById("login-btn");
     loginButton.addEventListener('click', loginPage)
@@ -30,6 +32,8 @@ export function renderHeader() {
     categoriesButton.addEventListener('click', renderCategoriesList);
     const customHabitButton = document.getElementById("custom-habit-btn");
     customHabitButton.addEventListener('click', renderAddHabitForm);
+    const journalEntryButton = document.getElementById("journal-entry-btn");
+    journalEntryButton.addEventListener('click', renderJournal);
 
     getUser()
     
