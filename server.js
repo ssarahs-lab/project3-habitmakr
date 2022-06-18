@@ -42,7 +42,6 @@ app.get('/api/categories', (request, response) => {
   const sql = "SELECT * FROM identities;"
   db.query(sql)
   .then((dbResult) => {
-    // console.log(dbResult.rows)
     response.json(dbResult.rows)
   })
 })
@@ -53,7 +52,6 @@ app.get('/api/categories/:id', (request, response) => {
     const sql = "SELECT * FROM habits_list WHERE identities_id = $1"
     db.query(sql, [id])
     .then((dbResult) => {
-      console.log(dbResult.rows)
       response.json(dbResult.rows)
     })
 })
