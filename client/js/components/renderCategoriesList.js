@@ -69,9 +69,9 @@ export function renderCategoriesList(){
             divCard.appendChild(categoryLink)
             divCard.appendChild(habitContainer)
 
-            divCard.addEventListener('click', function(e) {
+            categoryLink.addEventListener('click', function(e) {
                 e.preventDefault()
-                console.log(response)
+                
                 let newLi = habitContainer.querySelectorAll('li')
                 divCard.classList.toggle('toggle-background')
                 newLi.forEach((li) => li.classList.toggle('toggle-display'))
