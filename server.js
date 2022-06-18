@@ -71,7 +71,12 @@ app.post('/api/addcustomhabit', (request, response)=>{
   })
 })
 
-app.post('/api/userhabits')
+//display users habits
+app.post('/api/userhabits', (request, response)=> {
+
+
+
+})
 
 
 app.listen(port, () => {
