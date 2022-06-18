@@ -57,6 +57,20 @@ app.get('/api/categories/:id', (request, response) => {
 })
 
 
+// add a custom habit
+app.post('/api/addcustomhabit', (request, response)=>{
+
+  const sqlforUserHabitsTable = 'INSERT INTO user_habits(habit_name, user_determined_frequency_of_reminder) VALUES ($1, $2);'
+
+  console.log(request.body)
+    
+
+  db.query(sqlforUserHabitsTable, [request.body.habitname, request.body.reminderfrequency])
+  .then(dbResult => {
+    response.json({success: true})
+  })
+})
+
 
 app.listen(port, () => {
   console.log(`App listening on port http://localhost:${port}`)

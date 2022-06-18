@@ -65,8 +65,9 @@ export function renderCategoriesList(){
                 })
 
 
-            divCard.appendChild(img)
+          
             divCard.appendChild(categoryLink)
+
             divCard.appendChild(habitContainer)
 
             categoryLink.addEventListener('click', function(e) {
@@ -76,6 +77,7 @@ export function renderCategoriesList(){
                 divCard.classList.toggle('toggle-background')
                 newLi.forEach((li) => li.classList.toggle('toggle-display'))
             })
+
 
         })
 
