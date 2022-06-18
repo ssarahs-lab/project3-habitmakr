@@ -7,23 +7,39 @@ export function renderAddHabitForm() {
     form.innerHTML = `
     <form id="add-habit-form">
             <h2>Add a custom habit</h2>
+
+            <fieldset>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon3">Habit name</span>
+  </div>
+  <input type="text" class="form-control" name="habitName">
+</div>
+</fieldset>
+
             <section id="errors"></section>
+           
+               
             <fieldset>
-                <label for="habitName">Habit name:</label><br>
-                <input type="text" name="habitName">
-            </fieldset>
-            <fieldset>
-                <label for="frequencyOfReminder">Frequency of reminder</label><br>
-                <select id="frequencyOfReminder" name="frequencyOfReminder">
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="Fortnightly">Fortnightly</option>
-                <option value="monthly">Monthly</option>
-                
+     
+                <div class="input-group">
+                <select class="custom-select" id="inputGroupSelect04 frequencyOfReminder" name="frequencyOfReminder">
+                    <option selected>How often would you like this habit to occur?</option>
+                    <option value="Daily">Daily</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Fortnightly">Fortnightly</option>
+                                <option value="Monthly">Monthly</option>
                 </select>
+                
+                    
+                </div>
+
             </fieldset>
-        
-            <button>Add Custom Habit</button>
+            <fieldset>
+            <div class="input-group">
+            <button class="btn">Add Custom Habit</button>
+            </div>
+            </fieldset>
         </form>
 
     `
