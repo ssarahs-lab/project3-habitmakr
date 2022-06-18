@@ -18,7 +18,7 @@ export function renderAddHabitForm() {
                 <option value="daily">Daily</option>
                 <option value="weekly">Weekly</option>
                 <option value="Fortnightly">Fortnightly</option>
-                <option value="monthly">Montlhy</option>
+                <option value="monthly">Monthly</option>
                 
                 </select>
             </fieldset>
