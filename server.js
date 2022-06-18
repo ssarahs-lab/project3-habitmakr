@@ -47,7 +47,6 @@ app.get('/api/categories', (request, response) => {
 })
 
 app.get('/api/categories/:id', (request, response) => {
-    console.log("db qeuried..")
     let id = request.params.id
     const sql = "SELECT * FROM habits_list WHERE identities_id = $1"
     db.query(sql, [id])
@@ -65,18 +64,36 @@ app.post('/api/addcustomhabit', (request, response)=>{
     response.json({success: false, message: "Must be logged in to add a habit."})
     return
   } else {
-    const sqlforUserHabitsTable = 'INSERT INTO user_habits(habit_name, user_determined_frequency_of_reminder, user_id) VALUES ($1, $2, $3);'
+    const sqlforUserHabitsTable = 'INSERT INTO user_habits(habit_name, user_determined_frequency_of_reminder, user_id, habits_list_id) VALUES ($1, $2, $3, $4);'
 
     console.log(request.body)
     console.log(request.session.userId)
       
   
-    db.query(sqlforUserHabitsTable, [request.body.habitname, request.body.reminderfrequency, request.session.userId])
+    db.query(sqlforUserHabitsTable, [request.body.habitname, request.body.reminderfrequency, request.session.userId, request.body.habits_list_id])
     .then(dbResult => {
       response.json({success: true})
     })
   }
   
+})
+
+app.delete('/api/deleteHabit/:id', (request, response) => {
+  let sql = `DELETE FROM user_habits WHERE habits_list_id = $1 AND user_id = $2`
+  console.log(request.params.id)
+  db.query(sql, [request.params.id, request.session.userId])
+  .then((dbResult) => {
+    response.json({
+      success: true,
+      message: "successfully deleted"
+    })
+  }).catch((error) => {
+    response.status(400)
+    response.json({
+      success: false,
+      message: "could not delete"
+    })
+  }) 
 })
 
 
