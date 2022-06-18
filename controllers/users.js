@@ -9,7 +9,7 @@ router.post('/', (request, response) => {
     const email = request.body.email
     const password = request.body.password
     const checkPassword = request.body.checkPassword
-    const checkPassWordCharacters = /^[a-zA-Z0-9~_&*%@$]+$/
+    // const checkPassWordCharacters = /^[a-zA-Z0-9~_&*%@$]+$/
  
     //creates the hashed password to store
     const generateHash = (password) => {
@@ -56,13 +56,13 @@ router.post('/', (request, response) => {
                     message: "Your password should be 8 - 16 characters in length."
                 })
                 return
-            } else if (checkPassWordCharacters.test(password)){
-                response.status(400)
-                response.json({
-                    success: false, 
-                    message: "Your password needs to include an uppercase letter, number and symbol"
-                })
-                return
+            // } else if (checkPassWordCharacters.test(password)){
+            //     response.status(400)
+            //     response.json({
+            //         success: false, 
+            //         message: "Your password needs to include an uppercase letter, number and symbol"
+            //     })
+            //     return
             } else {
                  //adds user to database if successful
                 const password_hash = generateHash(password)
