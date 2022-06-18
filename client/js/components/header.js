@@ -15,10 +15,10 @@ export function renderHeader() {
         <h1 id="title">Habit Makr</h1>
         <p> <span id="username"></span></p>
         <button id= "login-btn" class="btn nav-btn">Log in</button>
-        <button id="logout-btn" class="btn nav-btn" style="display: none;">Log out</button>
+        <button id="logout-btn" class="btn nav-btn">Log out</button>
         <button id= "signup-btn" class="btn nav-btn">Sign up</button>
-        <button id= "categories-btn" class="btn nav-btn">Choose habit</button>
-        <button id= "custom-habit-btn" class="btn nav-btn">Add habit</button>
+        <button id= "categories-btn" class="btn nav-btn" >Choose habit</button>
+        <button id= "custom-habit-btn" class="btn nav-btn" >Add habit</button>
         `
     const loginButton = document.getElementById("login-btn");
     loginButton.addEventListener('click', loginPage)

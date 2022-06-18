@@ -47,7 +47,6 @@ app.get('/api/categories', (request, response) => {
 })
 
 app.get('/api/categories/:id', (request, response) => {
-    console.log("db qeuried..")
     let id = request.params.id
     const sql = "SELECT * FROM habits_list WHERE identities_id = $1"
     db.query(sql, [id])
