@@ -23,15 +23,44 @@ In PostgresQL:
 
 In the terminal:
 
+  
 
     psql -d habit_tracker < schema.sql
     psql -d habit_tracker < seed.sql
     npm install express
     npm install nodemon
     npm install pg 
-    npm install express-session connect-pg-simple --save
-    npm install bcrypt
+    npm install express-sessiom
     npm start
 
+
+## Installation instructions (if database has changed)
+
+Locally: 
+
+
+    psql -d habit_tracker < schema.sql
+    psql -d habit_tracker < seed.sql
+
+	
+Then restart local server:
+
+    npm start
+
+On Heroku: 
+
+Reset database (deletes ALL data):
+
+```
+heroku pg:reset
+```
+
+Copy local database to the Heroku database:
+```
+heroku pg:push habit_tracker DATABASE_URL
+```
+
 ## Unsolved problems
+
+
 
