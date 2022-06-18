@@ -59,16 +59,24 @@ app.get('/api/categories/:id', (request, response) => {
 
 // add a custom habit
 app.post('/api/addcustomhabit', (request, response)=>{
+  
+  if(!request.session.loggedIn) {
+    response.status(401)
+    response.json({success: false, message: "Must be logged in to add a habit."})
+    return
+  } else {
+    const sqlforUserHabitsTable = 'INSERT INTO user_habits(habit_name, user_determined_frequency_of_reminder, user_id) VALUES ($1, $2, $3);'
 
-  const sqlforUserHabitsTable = 'INSERT INTO user_habits(habit_name, user_determined_frequency_of_reminder) VALUES ($1, $2);'
-
-  console.log(request.body)
-    
-
-  db.query(sqlforUserHabitsTable, [request.body.habitname, request.body.reminderfrequency])
-  .then(dbResult => {
-    response.json({success: true})
-  })
+    console.log(request.body)
+    console.log(request.session.userId)
+      
+  
+    db.query(sqlforUserHabitsTable, [request.body.habitname, request.body.reminderfrequency, request.session.userId])
+    .then(dbResult => {
+      response.json({success: true})
+    })
+  }
+  
 })
 
 
