@@ -1,3 +1,5 @@
+
+
 export function loginPage() {
     //render the login page
     const page = document.getElementById('page')
@@ -33,7 +35,7 @@ export function loginPage() {
             getUser()
             toggleUserLoginBtns()
             //RENDER FUNCTION CONTENT HERE INSTEAD OF H1
-            page.innerHTML = `<h1>Login successful</h1>`
+            page.innerHTML = `<h1>Hello ${data.email} </h1>`
         }).catch((error) => {
             //displays error messages dependant on what is wrong
             console.log(error)
@@ -147,14 +149,9 @@ export function getUser() {
 
                 loginBtn.style.display = 'none'
                 signupBtn.style.display = 'none'
-                
-
-
             } else {
                 username.textContent = ''
                 logoutBtn.style.display = 'none'
-
-
                 loginBtn.style.display = 'block'
                 signupBtn.style.display = 'block'
 
