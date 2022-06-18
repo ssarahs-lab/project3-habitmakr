@@ -66,11 +66,13 @@ export function renderCategoriesList(){
                             if(habitCheckbox.checked) {
                                 axios.post('/api/addcustomhabit', {
                                      habitname: newHabit.habit,
-                                     reminderfrequency: "daily",
-                                     habits_list_id: newHabit.habits_list_id
+                                     reminderfrequency: "daily"
+                                }).then((response) => {
+                                    checkbox.dataset.habitId = response.data.habitId
+                                    
                                 })
                             } else {
-                                axios.delete(`/api/deleteHabit/${newHabit.habits_list_id}`)
+                                axios.delete(`/api/deleteHabit/${checkbox.dataset.habitId}`)
                                 .then(response => console.log(response))
                             }
                         })
