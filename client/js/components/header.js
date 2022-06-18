@@ -29,9 +29,9 @@ export function renderHeader() {
     const logoutButton = document.getElementById("logout-btn");
     logoutButton.addEventListener('click', handleLogout)
     const categoriesButton = document.getElementById("categories-btn");
-    categoriesButton.addEventListener('click', renderCategoriesList)
-    const customHabitButton = document.getElementById("custom-habit-btn")
-    customHabitButton.addEventListener('click', renderAddHabitForm)
+    categoriesButton.addEventListener('click', renderCategoriesList);
+    const customHabitButton = document.getElementById("custom-habit-btn");
+    customHabitButton.addEventListener('click', renderAddHabitForm);
 
     getUser()
     
