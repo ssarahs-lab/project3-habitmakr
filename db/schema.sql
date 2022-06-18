@@ -2,7 +2,7 @@
 DROP TABLE IF EXISTS pet_plant_sprite;
 DROP TABLE IF EXISTS user_habit_log;
 DROP TABLE IF EXISTS user_habits;
-DROP TABLE IF EXISTS basic_habits_choice_list;
+DROP TABLE IF EXISTS habits_list;
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS identities;
 
@@ -23,32 +23,35 @@ CREATE TABLE users (
     account_created TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
-CREATE TABLE basic_habits_choice_list (
-    basic_habits_id SERIAL PRIMARY KEY,
-    identities_referenece INTEGER REFERENCES identities(identities_id),
-    habit VARCHAR(255),    
-    created_by_user VARCHAR(255)
+CREATE TABLE habits_list (
+    habits_list_id SERIAL PRIMARY KEY,
+    habit VARCHAR(255),
+    type BOOLEAN,
+    created_by_user VARCHAR(255),
+    identities_id INTEGER REFERENCES identities(identities_id)
 );
+
+-- the list of habits the user has chosen to implement
 
 CREATE TABLE user_habits(
 
     user_habits_id SERIAL PRIMARY KEY,
     date_started TIMESTAMP NOT NULL DEFAULT NOW(),
     date_completed TIMESTAMP NOT NULL DEFAULT NOW(),
-    habits_reference INTEGER REFERENCES basic_habits_choice_list(basic_habits_id),
-    user_reference INTEGER REFERENCES users(id),
-    user_determined_frequency_of_reminder VARCHAR(255)
+    user_determined_frequency_of_reminder VARCHAR(255),
+    habits_list_id INTEGER REFERENCES habits_list(habits_list_id),
+    user_id INTEGER REFERENCES users(id)
 );
 
 
-
+-- tracks the users habits regularly
 
 CREATE TABLE user_habit_log (
     user_habit_log_ID SERIAL PRIMARY KEY,
-    user_profile_reference_ID INTEGER REFERENCES users(id),
-    habits_id INTEGER REFERENCES basic_habits_choice_list(basic_habits_id),
+    user_id INTEGER REFERENCES users(id),
     time_completed TIMESTAMP NOT NULL DEFAULT NOW(),
-    is_habit_completed BOOLEAN
+    is_habit_completed BOOLEAN,
+    habits_list_id INTEGER REFERENCES habits_list(habits_list_id)
 );
 
 CREATE TABLE pet_plant_sprite (

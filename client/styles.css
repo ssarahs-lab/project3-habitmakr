@@ -1,5 +1,81 @@
+/* @media only screen and (max-width: 768px) {
+    body {
+      grid-template-columns: 1fr !important;
+      grid-template-rows: 40px !important;
+    }
+    
+} */
+
+#header {
+    display: flex;
+}
+
+#header > h1 {
+    flex-grow: 1;
+}
+
+.nav-btn {
+    margin: 5px;
+}
+
+
+/* body {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+} */
 
 /* use with variable.classList.toggle('toggle-display') to show and hide an element */
 .toggle-display {
-    display: none;
+    display: none !important;
+}
+
+/* toggle no background image */
+.toggle-background {
+    background-image: none !important;
+    background-color: black !important;
+}
+
+/* categories */
+.divCard {
+
+    width: 18rem;
+    height: 18rem;
+    border-radius: 5px;
+    margin: 10px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+   justify-content: center;
+   display: inline-block;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.category-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.divCard > a {
+    color: white;
+    font-size: 30px;
+}
+.divCard > div > li {
+    color: white;
+    list-style: none;
+}
+
+.divCard > a:hover {
+    text-decoration: none;
+    transform: scale(1.2);
+    color: white;
+}
+
+.divCard > div > input {
+    display: block;
 }
