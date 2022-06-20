@@ -65,9 +65,9 @@ export function signupPage() {
         <input type="text" name="username" class="form-control">
         <p>Email:</p>
         <input type="text" name="email" class="form-control">
-        <p>Password:</p>
+        <p>Create Password:</p>
         <input type="password" name="password" class="form-control">
-        <p>Check Password</p>
+        <p>Confirm Password:</p>
         <input type="password" name="check-password" class="form-control">
         <br>
         <button class="btn">Sign up</button>

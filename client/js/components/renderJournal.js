@@ -28,8 +28,9 @@ export function renderJournal() {
             const journal_description = document.createElement('p')
             journal_description.textContent = journal_entry
 
+            const formattedDate = moment(date_entered).calendar()
             const entry_date = document.createElement('p')
-            entry_date.textContent = date_entered
+            entry_date.textContent = formattedDate
 
             div1.appendChild(entry_title)
             div1.appendChild(entry_date)
