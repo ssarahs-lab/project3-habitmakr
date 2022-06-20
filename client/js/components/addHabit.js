@@ -37,7 +37,7 @@ export function renderAddHabitForm() {
             </fieldset>
             <fieldset>
             <div class="input-group">
-            <button class="btn">Add Custom Habit</button>
+            <button class="btn" style="margin-top:15px">Add Custom Habit</button>
             </div>
             </fieldset>
         </form>

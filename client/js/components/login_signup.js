@@ -125,7 +125,7 @@ export function handleLogout() {
             const page = document.getElementById('page')
             getUser()
             //RENDER FUNCTION CONTENT HERE INSTEAD OF H1
-            page.innerHTML = "<h1>Logged out succesfully</h1>"
+            page.innerHTML = "<h1>Logged out successfully</h1>"
         })
 }
 
