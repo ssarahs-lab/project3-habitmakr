@@ -1,5 +1,4 @@
 
-
 export function renderAddEntry() {
     console.log('renderAddEntry')
     const page = document.getElementById("page")
