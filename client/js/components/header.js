@@ -5,7 +5,7 @@ import{renderAddHabitForm} from './addHabit.js'
 import{renderHabitDashboard} from './renderHabitDashboard.js'
 
 import {renderJournal} from './renderJournal.js'
-import {placeholder} from './renderplaceholder.js'
+
 
 console.log("header.js is running")
 

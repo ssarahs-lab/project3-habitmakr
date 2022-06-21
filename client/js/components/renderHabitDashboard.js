@@ -5,11 +5,19 @@ export function renderHabitDashboard(){
     let habitDashboardContainer = document.createElement('div')
     habitDashboardContainer.classList.add("habitDashboardContainer")
    
-    page.appendChild(habitDashboardContainer);
+    page.appendChild(habitDashboardContainer)
 
     const masterListHeading = document.createElement("h3");
     masterListHeading.textContent = "Current Habits"
     habitDashboardContainer.appendChild(masterListHeading)
+
+    // let catImageGif = document.createElement('img')
+          
+    // catImageGif.src = "https://i.gifer.com/4g8n.gif"
+    // catImageGif.style.width = '30vw'
+    // habitDashboardContainer.appendChild(catImageGif)  
+    
+    // https://i.gifer.com/ICtO.gif
 
     axios
     .get("api/userhabits")
@@ -21,7 +29,7 @@ export function renderHabitDashboard(){
 
             console.log(userhabit)
         
-            
+           
             let habitDashboardDiv = document.createElement('div');
             habitDashboardDiv.classList.add("habitDashboardDiv")
 
@@ -29,7 +37,7 @@ export function renderHabitDashboard(){
             let habitNameCell = document.createElement('td');
             let reminderFrequencyCell = document.createElement('td');
 
-            
+                 
             habitDashboardContainer.appendChild(tableRow);
             habitNameCell.textContent = userhabit.habit_name;
             habitNameCell.setAttribute = ('width', '70px' )
