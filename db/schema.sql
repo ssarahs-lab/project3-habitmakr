@@ -30,7 +30,7 @@ CREATE TABLE identities (
 CREATE TABLE habits_list (
     habits_list_id SERIAL PRIMARY KEY,
     habit VARCHAR(255),
-    type BOOLEAN, 
+    type BOOLEAN,
     created_by_user VARCHAR(255),
     identities_id INTEGER REFERENCES identities(identities_id)
 );

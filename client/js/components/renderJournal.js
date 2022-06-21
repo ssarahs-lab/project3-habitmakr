@@ -13,16 +13,8 @@ export function renderJournal() {
     entrybutton.textContent = "Add entry"
     entrybutton.addEventListener('click', renderAddEntry)
 
-    let catImageGif = document.createElement('img')
-          
-    catImageGif.src = " https://i.gifer.com/ICtO.gif"
-    catImageGif.style.width = '300px'
- 
-
-
-
     journalSection.appendChild(entrybutton)
-    page.replaceChildren(title,catImageGif,journalSection)
+    page.replaceChildren(title,journalSection)
 
     axios.get('/api/journalentries').then((response) => {
         console.log(response)
