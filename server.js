@@ -132,6 +132,18 @@ app.post('/api/addjournalentry', (req, res) => {
   console.log("/api/addjournalentry")
 })
 
+app.get('/api/userHabits', (req, res) => {
+  let userId = req.session.userId
+
+  let sql = `SELECT user_habits_id, habit_name, date_started, user_determined_frequency_of_reminder FROM user_habits WHERE user_id = $1`
+
+  db.query(sql, [userId])
+  .then((dbResponse) => {
+    console.log(dbResponse.rows, "Hello")
+    res.json(dbResponse.rows)
+  })
+})
+
 
 
 

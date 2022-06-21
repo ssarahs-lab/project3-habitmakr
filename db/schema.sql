@@ -37,11 +37,13 @@ CREATE TABLE habits_list (
 
 -- user's master list of habits
 
-CREATE TABLE user_habits(
+  CREATE TABLE user_habits(
 
     user_habits_id SERIAL PRIMARY KEY,
     habit_name VARCHAR(255),
     date_started TIMESTAMP NOT NULL DEFAULT NOW(),
+    time_of_habit VARCHAR(255),
+    days_of_week TEXT,
     date_completed TIMESTAMP,
     user_determined_frequency_of_reminder VARCHAR(255),
     habits_list_id INTEGER REFERENCES habits_list(habits_list_id),
