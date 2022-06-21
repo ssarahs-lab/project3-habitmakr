@@ -9,7 +9,7 @@ export function renderAddHabitForm() {
             <h2>Add a custom habit</h2>
             <section id="errors"></section>
             <fieldset>
-                <label for="habitName">Habit name:</label><br>
+                <label for="habitName">Habit name</label><br>
                 <input type="text" name="habitName">
             </fieldset>
             <fieldset>
@@ -21,9 +21,9 @@ export function renderAddHabitForm() {
                 <option value="monthly">Monthly</option>
                 
                 </select>
-            </fieldset>
+            </fieldset> <br>
         
-            <button>Add Custom Habit</button>
+            <button class="btn">Add Custom Habit</button>
         </form>
 
     `

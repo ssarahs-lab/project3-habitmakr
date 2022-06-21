@@ -8,7 +8,7 @@ export function renderAddEntry() {
     <label for="title"> Title </label> <br>
     <input type="text" name="title"> <br>
     <label for="entry"> Entry </label> <br>
-    <textarea type="text" name="entry" rows="10"></textarea> <br>
+    <textarea type="text" name="entry" rows="10"></textarea><br>
     <button class="btn"> Enter </button> 
     `
     page.replaceChildren(journalForm)
