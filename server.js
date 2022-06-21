@@ -109,6 +109,24 @@ app.get('/api/journalentries', (req,res) => {
   })
 })
 
+//display users habits
+app.get('/api/userhabits', (request, response)=> {
+
+  let userid = request.session.userId
+
+  const sql = "SELECT * FROM user_habits WHERE user_id = $1"
+
+  db.query(sql, [userid])
+  .then((dbResult)=>{
+
+      response.json(dbResult.rows)
+
+  } )
+
+    
+
+})
+
 
 // add a journal entry
 app.post('/api/addjournalentry', (req, res) => {

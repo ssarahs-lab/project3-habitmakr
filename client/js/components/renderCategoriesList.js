@@ -8,6 +8,14 @@ export function renderCategoriesList(){
     let categoryImgURL = []
     let categoryContainer = document.createElement('div')
     categoryContainer.classList.add('category-container')
+    
+
+    let h2 = document.createElement('h2')
+    h2.textContent = "Choose a premade habit"
+    h2.classList.add("text-center")
+
+    page.appendChild(h2)
+
     page.appendChild(categoryContainer)
 
     axios
@@ -23,7 +31,7 @@ export function renderCategoriesList(){
             let img = document.createElement('img');
             let habitContainer = document.createElement('div')
 
-
+         
             divCard.classList.add("card")
             divCard.classList.add("divCard")
 
@@ -66,7 +74,7 @@ export function renderCategoriesList(){
                             if(habitCheckbox.checked) {
                                 axios.post('/api/addcustomhabit', {
                                      habitname: newHabit.habit,
-                                     reminderfrequency: "daily",
+                                     reminderfrequency: "Daily",
                                      habits_list_id: newHabit.habits_list_id
                                 })
                             } else {
@@ -106,3 +114,4 @@ export function renderCategoriesList(){
 //     })
     
 // }
+
