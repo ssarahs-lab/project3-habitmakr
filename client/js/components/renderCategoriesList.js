@@ -54,13 +54,26 @@ export function renderCategoriesList(){
                         let newLi = document.createElement('li')
                         let checkbox = document.createElement('div')
                         checkbox.innerHTML = `
-                            <input type="checkbox" id="${category.identities_id}">
+                            <input type="checkbox" id="${newHabit.habits_list_id}">
                         `
                         newLi.classList.add('toggle-display')
                         // newLi.classList.add("list-group-item")
                         newLi.textContent = newHabit.habit
                         habitContainer.append(newLi)
                         newLi.appendChild(checkbox)
+                        let habitCheckbox = document.getElementById(newHabit.habits_list_id)
+                        habitCheckbox.addEventListener('click', function() {
+                            if(habitCheckbox.checked) {
+                                axios.post('/api/addcustomhabit', {
+                                     habitname: newHabit.habit,
+                                     reminderfrequency: "Daily",
+                                     habits_list_id: newHabit.habits_list_id
+                                })
+                            } else {
+                                axios.delete(`/api/deleteHabit/${newHabit.habits_list_id}`)
+                                .then(response => console.log(response))
+                            }
+                        })
                     })
                 })
 

@@ -1,3 +1,5 @@
+import { placeholder } from "./renderplaceholder.js"
+
 export function loginPage() {
     //render the login page
     const page = document.getElementById('page')
@@ -31,9 +33,8 @@ export function loginPage() {
         .then((response) => {
             console.log(response)
             getUser()
-            toggleUserLoginBtns()
             //RENDER FUNCTION CONTENT HERE INSTEAD OF H1
-            page.innerHTML = `<h1>Login successful</h1>`
+            page.innerHTML = `<h1>Hello ${data.email} </h1>`
         }).catch((error) => {
             //displays error messages dependant on what is wrong
             console.log(error)
@@ -64,9 +65,9 @@ export function signupPage() {
         <input type="text" name="username" class="form-control">
         <p>Email:</p>
         <input type="text" name="email" class="form-control">
-        <p>Password:</p>
+        <p>Create Password:</p>
         <input type="password" name="password" class="form-control">
-        <p>Check Password</p>
+        <p>Confirm Password:</p>
         <input type="password" name="check-password" class="form-control">
         <br>
         <button class="btn">Sign up</button>
@@ -123,10 +124,11 @@ export function handleLogout() {
             console.log(response)
             const page = document.getElementById('page')
             getUser()
-            toggleUserLoginBtns()
-            toggleLogoutBtn()
             //RENDER FUNCTION CONTENT HERE INSTEAD OF H1
-            page.innerHTML = "<h1>Logged out succesfully</h1>"
+            page.innerHTML = `<h1>Logged out successfully</h1> 
+                                <h3> Page will now redirect.. </h3>`
+
+            setTimeout(placeholder, 3000)
         })
 }
 
@@ -140,21 +142,26 @@ export function getUser() {
             const signupBtn = document.getElementById('signup-btn')
             const username = document.getElementById('username')
             const categoriesBtn = document.getElementById('categories-btn')
+            const customHabitBtn = document.getElementById('custom-habit-btn')
+            const habitDashboardBtn = document.getElementById('habit-dashboard-btn')
+            const journalEntryBtn = document.getElementById('journal-entry-btn')
             if(response.data.sessionName) {
                 console.log(response.data.sessionName)
                 username.textContent = `Hello ${response.data.sessionName}`
-                logoutBtn.style.display = 'block'
-
+                habitDashboardBtn.style.display='block'
+                categoriesBtn.style.display = 'block'
+                customHabitBtn.style.display = 'block'
+                journalEntryBtn.style.display='block'
+                logoutBtn.style.display = 'block'    
                 loginBtn.style.display = 'none'
                 signupBtn.style.display = 'none'
-                
-
-
             } else {
                 username.textContent = ''
+                categoriesBtn.style.display = 'none'
+                customHabitBtn.style.display = 'none'
                 logoutBtn.style.display = 'none'
-
-
+                habitDashboardBtn.style.display='none'
+                journalEntryBtn.style.display='none'
                 loginBtn.style.display = 'block'
                 signupBtn.style.display = 'block'
 

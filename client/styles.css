@@ -8,14 +8,23 @@
 
 #header {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1%;
 }
 
 #header > h1 {
-    flex-grow: 1;
+    flex-grow: 1; 
+    font-size: 24px;
+    margin: 0.5%;
 }
 
 .nav-btn {
-    margin: 5px;
+    margin: 0.5%;
+    /*padding: 2.5%; */
+    height: 2%;
+    font-size: 16px;
+    
 }
 
 
@@ -37,27 +46,36 @@
 
 /* categories */
 .divCard {
-
-    width: 18rem;
-    height: 18rem;
+   
+    height: 125px;
+    width: 100%;
     border-radius: 5px;
-    margin: 10px;
+    margin: 2.5%;
     background-size: cover;
+    background-position: center;
     display: flex;
     align-items: center;
-   justify-content: center;
-   display: inline-block;
+    justify-content: center; 
+    display: inline-block;
+}
+
+@media only screen and (min-width: 640px) {
+    .divCard{
+        width: 18rem; 
+        height: 18rem; 
+    }
+    
 }
 
 .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
 .category-container {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; 
 
 }
 
@@ -80,6 +98,18 @@
     display: block;
 }
 
+
 #username {
     line-height: 40px;
+
+}
+
+.journal-section {
+    height: 90px;
+}
+
+#journal-description {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
 }

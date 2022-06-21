@@ -7,6 +7,10 @@ export function renderHabitDashboard(){
    
     page.appendChild(habitDashboardContainer);
 
+    const masterListHeading = document.createElement("h3");
+    masterListHeading.textContent = "Current Habits"
+    habitDashboardContainer.appendChild(masterListHeading)
+
     axios
     .get("api/userhabits")
     .then((response) => {
@@ -17,19 +21,23 @@ export function renderHabitDashboard(){
 
             console.log(userhabit)
         
+            
             let habitDashboardDiv = document.createElement('div');
             habitDashboardDiv.classList.add("habitDashboardDiv")
-            let habitNameParagraph = document.createElement('p');
-            let reminderfrequency = document.createElement('p');
 
+            let tableRow = document.createElement('tr');
+            let habitNameCell = document.createElement('td');
+            let reminderFrequencyCell = document.createElement('td');
 
-            habitNameParagraph.textContent = userhabit.habit_name;
-            reminderfrequency.textContent = userhabit.user_determined_frequency_of_reminder;
+            
+            habitDashboardContainer.appendChild(tableRow);
+            habitNameCell.textContent = userhabit.habit_name;
+            habitNameCell.setAttribute = ('width', '70px' )
+            reminderFrequencyCell.textContent = userhabit.user_determined_frequency_of_reminder;
+            tableRow.appendChild(habitNameCell);
+            tableRow.appendChild(reminderFrequencyCell);
 
-            habitDashboardContainer.appendChild(habitDashboardDiv);
-            habitDashboardDiv.appendChild(habitNameParagraph);
-            habitDashboardDiv.appendChild(reminderfrequency)
-        
+      
         
         
         

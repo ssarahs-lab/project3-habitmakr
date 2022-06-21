@@ -15,7 +15,7 @@ const usersController = require('./controllers/users')
 const app = express()
 
 const pg = require("pg");
-const { use } = require('./controllers/session');
+const { response } = require('express');
 const port = process.env.PORT || 3000;
 
 
@@ -48,7 +48,6 @@ app.get('/api/categories', (request, response) => {
 })
 
 app.get('/api/categories/:id', (request, response) => {
-   
     let id = request.params.id
     const sql = "SELECT * FROM habits_list WHERE identities_id = $1"
     db.query(sql, [id])
@@ -60,15 +59,52 @@ app.get('/api/categories/:id', (request, response) => {
 
 // add a custom habit
 app.post('/api/addcustomhabit', (request, response)=>{
+  
+  if(!request.session.loggedIn) {
+    response.status(401)
+    response.json({success: false, message: "Must be logged in to add a habit."})
+    return
+  } else {
+    const sqlforUserHabitsTable = 'INSERT INTO user_habits(habit_name, user_determined_frequency_of_reminder, user_id, habits_list_id) VALUES ($1, $2, $3, $4);'
 
-  const sqlforUserHabitsTable = 'INSERT INTO user_habits(habit_name, user_determined_frequency_of_reminder, user_id) VALUES ($1, $2, $3);'
+    console.log(request.body)
+    console.log(request.session.userId)
+      
+  
+    db.query(sqlforUserHabitsTable, [request.body.habitname, request.body.reminderfrequency, request.session.userId, request.body.habits_list_id])
+    .then(dbResult => {
+      response.json({success: true})
+    })
+  }
+  
+})
 
-  console.log(request.body)
-    
+app.delete('/api/deleteHabit/:id', (request, response) => {
+  let sql = `DELETE FROM user_habits WHERE habits_list_id = $1 AND user_id = $2`
+  console.log(request.params.id)
+  db.query(sql, [request.params.id, request.session.userId])
+  .then((dbResult) => {
+    response.json({
+      success: true,
+      message: "successfully deleted"
+    })
+  }).catch((error) => {
+    response.status(400)
+    response.json({
+      success: false,
+      message: "could not delete"
+    })
+  }) 
+})
 
-  db.query(sqlforUserHabitsTable, [request.body.habitname, request.body.reminderfrequency, request.session.userId])
-  .then(dbResult => {
-    response.json({success: true})
+// get all journal entries
+app.get('/api/journalentries', (req,res) => {
+  console.log(req.session)
+  const {userId} = req.session
+  const sql = 'SELECT * FROM journal_entries WHERE user_entry_id = ($1);'
+ 
+  db.query(sql, [userId]).then(dbResult => {
+    res.json(dbResult.rows)
   })
 })
 
@@ -89,6 +125,31 @@ app.get('/api/userhabits', (request, response)=> {
     
 
 })
+
+
+// add a journal entry
+app.post('/api/addjournalentry', (req, res) => {
+  console.log(req.body)
+  console.log(req.session)
+  const {title, entry} = req.body
+  const {userId} = req.session
+  console.log(userId)
+  if(!req.session.loggedIn){
+    res.status(401)
+    res.json({success: false, message: "Must be logged in to add an entry"})
+  } else {
+    const sql = 'INSERT INTO journal_entries(user_entry_id, title, journal_entry) VALUES ($1, $2, $3);' 
+
+    db.query(sql, [userId, title, entry]).then(dbResult => {
+      res.json({success: true})
+    })
+  }
+
+  
+  console.log("/api/addjournalentry")
+})
+
+
 
 
 app.listen(port, () => {

@@ -3,8 +3,9 @@ DROP TABLE IF EXISTS pet_plant_sprite;
 DROP TABLE IF EXISTS user_habit_log;
 DROP TABLE IF EXISTS user_habits;
 DROP TABLE IF EXISTS habits_list;
-DROP TABLE IF EXISTS users;
+--DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS identities;
+DROP TABLE IF EXISTS journal_entries CASCADE;
 
 
 -- templated categories of default habits
@@ -15,21 +16,21 @@ CREATE TABLE identities (
     image_related_identity_url VARCHAR(255)
 );
 
-CREATE TABLE users (
-    id SERIAL PRIMARY KEY,
-    username VARCHAR(255),
-    email VARCHAR(255),
-    password_hash VARCHAR(255),
-    last_login TIMESTAMP, 
-    account_created TIMESTAMP NOT NULL DEFAULT NOW()
-);
+-- CREATE TABLE users (
+--     id SERIAL PRIMARY KEY,
+--     username VARCHAR(255),
+--     email VARCHAR(255),
+--     password_hash VARCHAR(255),
+--     last_login TIMESTAMP, 
+--     account_created TIMESTAMP NOT NULL DEFAULT NOW()
+-- );
 
 -- master / general public habits list
 
 CREATE TABLE habits_list (
     habits_list_id SERIAL PRIMARY KEY,
     habit VARCHAR(255),
-    type BOOLEAN,
+    type BOOLEAN, 
     created_by_user VARCHAR(255),
     identities_id INTEGER REFERENCES identities(identities_id)
 );
@@ -65,5 +66,13 @@ CREATE TABLE pet_plant_sprite (
     pps_name VARCHAR(255), 
     pps_level VARCHAR(255),
     img_url VARCHAR(255)
+);
+
+CREATE TABLE journal_entries (
+    id SERIAL PRIMARY KEY,
+    user_entry_id INTEGER REFERENCES users(id),
+    date_entered TIMESTAMP NOT NULL DEFAULT NOW(),
+    title TEXT,
+    journal_entry TEXT
 );
 
