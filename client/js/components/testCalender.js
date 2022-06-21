@@ -9,3 +9,26 @@ var calendar = new tui.Calendar('#calendar', {
     }
   });
 
+  calendar.createSchedules([
+    // {
+    //     id: '1',
+    //     calendarId: '1',
+    //     title: 'my schedule',
+    //     category: 'time',
+    //     dueDateClass: '',
+    //     start: new Date(),
+    //     end: new Date()
+    // },
+    // {
+    //     id: '2',
+    //     calendarId: '1',
+    //     title: 'second schedule',
+    //     category: 'time',
+    //     dueDateClass: '',
+    //     start: '2018-01-18T17:30:00+09:00',
+    //     end: '2018-01-19T17:31:00+09:00'
+    // }
+    axios.get('/api/')
+]);
+
+calendar.render();
