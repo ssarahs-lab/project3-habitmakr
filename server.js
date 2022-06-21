@@ -31,6 +31,7 @@ app.use(expressSession({
 
 app.use(express.json())
 app.use(express.static('client'))
+app.use('/js/tui-calendar', express.static(__dirname + '/node_modules/tui-calendar/dist'))
 
 //access the routes
 app.use('/api/session', sessionController)
