@@ -1,4 +1,5 @@
-
+import { placeholder } from "./renderplaceholder.js"
+import { renderHabitDashboard } from "./renderHabitDashboard.js"
 
 export function loginPage() {
     //render the login page
@@ -34,7 +35,10 @@ export function loginPage() {
             console.log(response)
             getUser()
             //RENDER FUNCTION CONTENT HERE INSTEAD OF H1
-            page.innerHTML = `<h1>Hello ${data.email} </h1>`
+            page.innerHTML = `<img src="https://bang-phinf.pstatic.net/a/32358f/4_jj6Ud018bng1g8f7iwovvckh_xeofho.gif">`
+            
+            setTimeout(renderHabitDashboard, 3000)
+            
         }).catch((error) => {
             //displays error messages dependant on what is wrong
             console.log(error)
@@ -43,6 +47,11 @@ export function loginPage() {
                 document.querySelector('.error-msg').remove()
             }
             const errorMsg = document.createElement('p')
+
+            const data = {
+                email: email,
+                password: password
+            }
             //this is JSON sent from the backend
             errorMsg.textContent = error.response.data.message
             errorMsg.classList.add('error-msg')
@@ -125,7 +134,30 @@ export function handleLogout() {
             const page = document.getElementById('page')
             getUser()
             //RENDER FUNCTION CONTENT HERE INSTEAD OF H1
-            page.innerHTML = "<h1>Logged out successfully</h1>"
+
+            const logoutBtn = document.getElementById('logout-btn')
+            const loginBtn = document.getElementById('login-btn')
+            const signupBtn = document.getElementById('signup-btn')
+            const username = document.getElementById('username')
+            const categoriesBtn = document.getElementById('categories-btn')
+            const customHabitBtn = document.getElementById('custom-habit-btn')
+            const habitDashboardBtn = document.getElementById('habit-dashboard-btn')
+            const journalEntryBtn = document.getElementById('journal-entry-btn')
+            username.textContent = ''
+            categoriesBtn.style.display = 'none'
+            customHabitBtn.style.display = 'none'
+            logoutBtn.style.display = 'none'
+            habitDashboardBtn.style.display='none'
+            journalEntryBtn.style.display='none'
+            loginBtn.style.display = 'block'
+            signupBtn.style.display = 'block'
+
+            page.innerHTML = `<h1>Logged out successfully</h1> 
+                                <h3> Page will now redirect.. </h3>`
+
+                            
+
+            setTimeout(placeholder, 2000)
         })
 }
 
@@ -140,13 +172,17 @@ export function getUser() {
             const username = document.getElementById('username')
             const categoriesBtn = document.getElementById('categories-btn')
             const customHabitBtn = document.getElementById('custom-habit-btn')
+            const habitDashboardBtn = document.getElementById('habit-dashboard-btn')
+            const journalEntryBtn = document.getElementById('journal-entry-btn')
             if(response.data.sessionName) {
                 console.log(response.data.sessionName)
                 username.textContent = `Hello ${response.data.sessionName}`
-                logoutBtn.style.display = 'block'
+                username.classList.add("align-baseline")
+                habitDashboardBtn.style.display='block'
                 categoriesBtn.style.display = 'block'
                 customHabitBtn.style.display = 'block'
-
+                journalEntryBtn.style.display='block'
+                logoutBtn.style.display = 'block'    
                 loginBtn.style.display = 'none'
                 signupBtn.style.display = 'none'
             } else {
@@ -154,6 +190,8 @@ export function getUser() {
                 categoriesBtn.style.display = 'none'
                 customHabitBtn.style.display = 'none'
                 logoutBtn.style.display = 'none'
+                habitDashboardBtn.style.display='none'
+                journalEntryBtn.style.display='none'
                 loginBtn.style.display = 'block'
                 signupBtn.style.display = 'block'
 
