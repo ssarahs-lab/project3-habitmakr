@@ -1,6 +1,13 @@
+import {renderCalender} from './testCalender.js'
+
 export function renderHabitDashboard(){
 
     page.innerHTML = ""
+    let calenderBtn = document.createElement('button')
+    calenderBtn.textContent = "Calender"
+    calenderBtn.classList.add('btn')
+    calenderBtn.addEventListener('click', renderCalender)
+    page.appendChild(calenderBtn)
 
     let habitDashboardContainer = document.createElement('div')
     habitDashboardContainer.classList.add("habitDashboardContainer")
