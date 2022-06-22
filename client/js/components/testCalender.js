@@ -10,7 +10,7 @@ export function renderCalender() {
           return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
         },
         popupEdit: function() {
-          return 'Complete';
+          return null;
       },
       }
     });
@@ -34,18 +34,18 @@ export function renderCalender() {
       calendar.createSchedules(data)
     })
 
-    calendar.on('clickSchedule', function(event) {
-      const schedule = event.schedule;
-      if(schedule.bgColor !== 'blue') {
-        schedule.bgColor = 'blue'
-        console.log(event.schedule)
-      } else {
-        schedule.bgColor = 'black'
-      }
+  //   calendar.on('clickSchedule', function(event) {
+  //     const schedule = event.schedule;
+  //     if(schedule.bgColor !== 'blue') {
+  //       schedule.bgColor = 'blue'
+  //       console.log(event.schedule)
+  //     } else {
+  //       schedule.bgColor = 'black'
+  //     }
       
-      calendar.render()
+  //     calendar.render()
 
-  });
+  // });
     
 
 }

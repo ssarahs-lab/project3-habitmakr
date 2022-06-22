@@ -46,7 +46,7 @@ export function renderHabitDashboard(){
             let completedCell = document.createElement('td')
             let completedBtn = document.createElement('button')
             completedBtn.classList.add('btn')
-            completedBtn.textContent = 'Completed'
+            completedBtn.textContent = 'Complete'
 
                  
             habitDashboardContainer.appendChild(tableRow);
@@ -59,6 +59,9 @@ export function renderHabitDashboard(){
             completedCell.appendChild(completedBtn)
 
             completedBtn.addEventListener('click', function(){
+                console.log('click')
+                completedBtn.disabled = true
+                completedBtn.textContent = 'Well done... See you tomorrow!'
                 let data = {
                     habit: userhabit.habit_name
                 }
@@ -67,6 +70,27 @@ export function renderHabitDashboard(){
                 axios.post('api/completedHabit', data)
                 .then((response) => {
                     console.log(response)
+                    renderCalender()
+                })
+            })
+
+            
+
+            axios.get('api/completedHabit')
+            .then((response) => {
+                
+                let today = moment(new Date()).format()
+                let todayDate = today.split("T")
+
+
+                response.data.forEach((completedHabit) => {
+                    let completedDate = completedHabit.time_completed.split('T')
+                    console.log(completedDate, todayDate)
+                    if(completedHabit.habit_name == userhabit.habit_name && completedDate[0] == todayDate[0]) {
+                        completedBtn.textContent = 'Well done... See you tomorrow!'
+                        completedBtn.disabled = true
+
+                    }
                 })
             })
 
