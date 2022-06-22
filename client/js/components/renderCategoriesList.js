@@ -69,11 +69,11 @@ export function renderCategoriesList(){
                                 let checkbox = document.createElement('div')
                                 if(newHabit.habit == userHabit.habit_name) {
                                     checkbox.innerHTML = `
-                                    <input type="checkbox" checked id="${newHabit.habits_list_id}">
+                                    <input type="checkbox" checked id="${newHabit.habit_name}">
                                 `
                                 } else {
                                     checkbox.innerHTML = `
-                                    <input type="checkbox" id="${newHabit.habits_list_id}">
+                                    <input type="checkbox" id="${newHabit.habit_name}">
                                     `
                                 }
                                 
@@ -82,7 +82,7 @@ export function renderCategoriesList(){
                                 newLi.textContent = newHabit.habit
                                 habitContainer.append(newLi)
                                 newLi.appendChild(checkbox)
-                                let habitCheckbox = document.getElementById(newHabit.habits_list_id)
+                                let habitCheckbox = document.getElementById(newHabit.habit_name)
                                 habitCheckbox.addEventListener('click', function() {
                                     if(habitCheckbox.checked) {
                                         axios.post('/api/addcustomhabit', {
@@ -99,7 +99,6 @@ export function renderCategoriesList(){
                                         .then(response => console.log(response))
                                     }
                                 })
-                                return
                             })
                             
                         })
