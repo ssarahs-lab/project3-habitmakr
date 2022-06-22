@@ -1,5 +1,6 @@
 export function renderCalender() {
   let calendarEl = document.getElementById('calendar')
+  //initialises the calendar
   let calendar = new tui.Calendar(calendarEl, {
       disableClick: true,
       defaultView: 'month',
@@ -18,6 +19,7 @@ export function renderCalender() {
       }
     });
 
+    //access the db of completed habits and show them on the calender
     axios.get('/api/completedHabit')
     .then((response) => {
       
