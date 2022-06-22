@@ -6,7 +6,11 @@ export function renderHabitDashboard(){
     let calenderBtn = document.createElement('button')
     calenderBtn.textContent = "Calender"
     calenderBtn.classList.add('btn')
-    calenderBtn.addEventListener('click', renderCalender)
+    calenderBtn.addEventListener('click', function() {
+        let calendar = document.getElementById('calendar')
+        calendar.innerHTML = ''
+        renderCalender()
+    })
     page.appendChild(calenderBtn)
 
     let habitDashboardContainer = document.createElement('div')
@@ -34,7 +38,6 @@ export function renderHabitDashboard(){
 
         response.data.forEach((userhabit)=> {
 
-            console.log(userhabit)
         
            
             let habitDashboardDiv = document.createElement('div');

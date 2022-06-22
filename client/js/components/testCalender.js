@@ -1,6 +1,6 @@
 export function renderCalender() {
-  
-  var calendar = new tui.Calendar('#calendar', {
+  let calendarEl = document.getElementById('calendar')
+  let calendar = new tui.Calendar(calendarEl, {
       disableClick: true,
       defaultView: 'month',
       taskView: true,
@@ -11,13 +11,16 @@ export function renderCalender() {
         },
         popupEdit: function() {
           return null;
+       },
+       popupDetailBody: function(schedule) {
+        return 'Body : ' + schedule.body;
       },
       }
     });
 
     axios.get('/api/completedHabit')
     .then((response) => {
-      console.log(response)
+      
       let data = response.data.map((habit) => {
         let time_completed = habit.time_completed.split("T")
         return {
@@ -30,9 +33,8 @@ export function renderCalender() {
           color: 'white'
         }
       })
-      console.log(data)
+      
       calendar.createSchedules(data)
 
     })
-    return calendar
 }

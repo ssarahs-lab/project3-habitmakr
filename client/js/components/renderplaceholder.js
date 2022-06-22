@@ -3,6 +3,8 @@ export function placeholder() {
 
 const page = document.getElementById('page')
     page.innerHTML = ''
+    let calendar = document.getElementById('calendar')
+    calendar.innerHTML = ''
 
     page.innerHTML = `
 
