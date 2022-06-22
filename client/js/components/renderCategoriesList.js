@@ -3,6 +3,8 @@
 export function renderCategoriesList(){
 
     page.innerHTML = ""
+    let calendar = document.getElementById('calendar')
+    calendar.innerHTML = ''
 
     let categoryNames = []
     let categoryImgURL = []

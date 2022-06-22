@@ -37,7 +37,7 @@ CREATE TABLE habits_list (
 
 -- user's master list of habits
 
-CREATE TABLE user_habits(
+  CREATE TABLE user_habits(
 
     user_habits_id SERIAL PRIMARY KEY,
     habit_name VARCHAR(255),
@@ -55,8 +55,7 @@ CREATE TABLE user_habit_log (
     user_habit_log_ID SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id),
     time_completed TIMESTAMP NOT NULL DEFAULT NOW(),
-    is_habit_completed BOOLEAN,
-    habits_list_id INTEGER REFERENCES habits_list(habits_list_id)
+    habit_name VARCHAR(255)
 );
 
 CREATE TABLE pet_plant_sprite (

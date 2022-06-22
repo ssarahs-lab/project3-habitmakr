@@ -4,6 +4,8 @@ export function renderAddHabitForm() {
 
     const page = document.getElementById('page')
     page.innerHTML = ""
+    let calendar = document.getElementById('calendar')
+    calendar.innerHTML = ''
 
     const form = document.createElement("form");
     form.innerHTML = `

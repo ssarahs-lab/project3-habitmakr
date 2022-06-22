@@ -150,6 +150,59 @@ app.post('/api/addjournalentry', (req, res) => {
   console.log("/api/addjournalentry")
 })
 
+app.get('/api/userHabits', (req, res) => {
+  let userId = req.session.userId
+
+  let sql = `SELECT user_habits_id, habit_name, date_started, user_determined_frequency_of_reminder FROM user_habits WHERE user_id = $1`
+
+  db.query(sql, [userId])
+  .then((dbResponse) => {
+    console.log(dbResponse.rows, "Hello")
+    res.json(dbResponse.rows)
+  })
+})
+
+//add to completed habits log
+app.post('/api/completedHabit', (req, res) => {
+  let userId = req.session.userId
+
+  let habit = req.body.habit
+
+  let sql = `INSERT INTO user_habit_log(user_id, habit_name) VALUES ($1, $2)`
+
+  db.query(sql, [userId, habit])
+  .then((dbResponse) => {
+    console.log(dbResponse.rows)
+    res.json({success: true})
+  }).catch((error) => {
+    res.status(400)
+    res.json({
+      success: false,
+      error: error
+    })
+  })
+})
+
+
+//gets the completed habits by user from user_habits_log
+app.get('/api/completedHabit', (req, res) => {
+  let userId = req.session.userId 
+
+  let sql = `SELECT user_habit_log_id, habit_name, time_completed FROM user_habit_log WHERE user_id = $1`
+
+  db.query(sql, [userId])
+  .then((dbResponse) => {
+    console.log(dbResponse.rows)
+    res.json(dbResponse.rows)
+  }).catch((error) => {
+    res.status(400)
+    res.json({
+      success: false,
+      error: error
+    })
+  })
+})
+
 
 
 
