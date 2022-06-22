@@ -97,3 +97,23 @@
 .divCard > div > input {
     display: block;
 }
+
+
+#username {
+    line-height: 40px;
+
+}
+
+.journal-section {
+    height: 90px;
+}
+
+#journal-description {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 10px;
+}
+
+.tui-full-calendar-section-button {
+    display: none;
+}

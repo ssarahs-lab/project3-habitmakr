@@ -1,29 +1,61 @@
+// user add custom habit
+
 export function renderAddHabitForm() {
 
     const page = document.getElementById('page')
     page.innerHTML = ""
+    let calendar = document.getElementById('calendar')
+    calendar.innerHTML = ''
 
     const form = document.createElement("form");
     form.innerHTML = `
     <form id="add-habit-form">
             <h2>Add a custom habit</h2>
+
+            <fieldset>
+<div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="basic-addon3">Habit name</span>
+  </div>
+  <input type="text" class="form-control" name="habitName">
+</div>
+</fieldset>
+
             <section id="errors"></section>
+           
+               
             <fieldset>
-                <label for="habitName">Habit name:</label><br>
-                <input type="text" name="habitName">
-            </fieldset>
-            <fieldset>
+     
+                <div class="input-group">
+                <select class="custom-select" id="inputGroupSelect04 frequencyOfReminder" name="frequencyOfReminder">
                 <label for="frequencyOfReminder">Frequency of reminder</label><br>
-                <select id="frequencyOfReminder" name="frequencyOfReminder">
-                <option value="daily">Daily</option>
-                <option value="weekly">Weekly</option>
-                <option value="Fortnightly">Fortnightly</option>
-                <option value="monthly">Monthly</option>
+                    <option value="Daily">Daily</option>
+                                <option value="Weekly">Weekly</option>
+                                <option value="Fortnightly">Fortnightly</option>
+                                <option value="Monthly">Monthly</option>
+                </select>
                 
+                    
+                </div>
+
+            </fieldset>
+     
+
+                <div class="input-group mb-3">
+            <div class="input-group-prepend">
+
+
+      </div>
+      </div >    
                 </select>
             </fieldset>
         
-            <button>Add Custom Habit</button>
+
+            <div class="input-group">
+            <button class="btn" style="margin-top:15px">Add Custom Habit</button>
+            </div>
+            </fieldset>
+
         </form>
 
     `
@@ -63,5 +95,4 @@ export function renderAddHabitForm() {
     })
 
 }
-
 
