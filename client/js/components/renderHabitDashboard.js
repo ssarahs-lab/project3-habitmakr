@@ -43,6 +43,10 @@ export function renderHabitDashboard(){
             let tableRow = document.createElement('tr');
             let habitNameCell = document.createElement('td');
             let reminderFrequencyCell = document.createElement('td');
+            let completedCell = document.createElement('td')
+            let completedBtn = document.createElement('button')
+            completedBtn.classList.add('btn')
+            completedBtn.textContent = 'Completed'
 
                  
             habitDashboardContainer.appendChild(tableRow);
@@ -51,6 +55,20 @@ export function renderHabitDashboard(){
             reminderFrequencyCell.textContent = userhabit.user_determined_frequency_of_reminder;
             tableRow.appendChild(habitNameCell);
             tableRow.appendChild(reminderFrequencyCell);
+            tableRow.appendChild(completedCell)
+            completedCell.appendChild(completedBtn)
+
+            completedBtn.addEventListener('click', function(){
+                let data = {
+                    habit: userhabit.habit_name
+                }
+                console.log(data)
+
+                axios.post('api/completedHabit', data)
+                .then((response) => {
+                    console.log(response)
+                })
+            })
 
       
         

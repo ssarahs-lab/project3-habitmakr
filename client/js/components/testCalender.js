@@ -15,14 +15,16 @@ export function renderCalender() {
       }
     });
 
-    axios.get('api/userhabits')
+    axios.get('/api/completedHabit')
     .then((response) => {
+      console.log(response)
       let data = response.data.map((habit) => {
-        let start_date = habit.date_started.split("T")
+        let time_completed = habit.time_completed.split("T")
         return {
+          id: habit.user_habit_log_id,
           title: habit.habit_name,
           category: 'time',
-          start: start_date[0],
+          start: time_completed[0],
           isAllDay: true,
           bgColor: 'black',
           color: 'white'
@@ -36,6 +38,7 @@ export function renderCalender() {
       const schedule = event.schedule;
       if(schedule.bgColor !== 'blue') {
         schedule.bgColor = 'blue'
+        console.log(event.schedule)
       } else {
         schedule.bgColor = 'black'
       }
@@ -45,6 +48,10 @@ export function renderCalender() {
   });
     
 
+}
+
+export function addToCompletedHabit() {
+    
 }
 
 

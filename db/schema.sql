@@ -42,8 +42,6 @@ CREATE TABLE habits_list (
     user_habits_id SERIAL PRIMARY KEY,
     habit_name VARCHAR(255),
     date_started TIMESTAMP NOT NULL DEFAULT NOW(),
-    time_of_habit VARCHAR(255),
-    days_of_week TEXT,
     date_completed TIMESTAMP,
     user_determined_frequency_of_reminder VARCHAR(255),
     habits_list_id INTEGER REFERENCES habits_list(habits_list_id),
@@ -57,8 +55,7 @@ CREATE TABLE user_habit_log (
     user_habit_log_ID SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users(id),
     time_completed TIMESTAMP NOT NULL DEFAULT NOW(),
-    is_habit_completed BOOLEAN,
-    habits_list_id INTEGER REFERENCES habits_list(habits_list_id)
+    habit_name VARCHAR(255)
 );
 
 CREATE TABLE pet_plant_sprite (
