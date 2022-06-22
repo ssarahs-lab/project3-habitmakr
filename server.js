@@ -82,9 +82,10 @@ app.post('/api/addcustomhabit', (request, response)=>{
 })
 
 app.delete('/api/deleteHabit/:id', (request, response) => {
-  let sql = `DELETE FROM user_habits WHERE user_habits_id = $1`
+  let sql = `DELETE FROM user_habits WHERE user_habits_id = $1 AND user_id = $2`
   console.log(request.params.id)
-  db.query(sql, [request.params.id])
+  let userId = request.session.userId
+  db.query(sql, [request.params.id, userId])
   .then((dbResult) => {
     response.json({
       success: true,

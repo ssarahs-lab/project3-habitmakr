@@ -62,31 +62,48 @@ export function renderCategoriesList(){
                 .then((response) => {
                     response.data.forEach((newHabit) => {
                         let newLi = document.createElement('li')
-                        let checkbox = document.createElement('div')
-                        checkbox.innerHTML = `
-                            <input type="checkbox" id="${newHabit.habits_list_id}">
-                        `
-                        newLi.classList.add('toggle-display')
-                        // newLi.classList.add("list-group-item")
-                        newLi.textContent = newHabit.habit
-                        habitContainer.append(newLi)
-                        newLi.appendChild(checkbox)
-                        let habitCheckbox = document.getElementById(newHabit.habits_list_id)
-                        habitCheckbox.addEventListener('click', function() {
-                            if(habitCheckbox.checked) {
-                                axios.post('/api/addcustomhabit', {
-                                     habitname: newHabit.habit,
-                                     reminderfrequency: "Daily",
-                                     habits_list_id: newHabit.habits_list_id
-
-                                    }).then((response) => {
-                                        checkbox.dataset.habitId = response.data.habitId
-                                    })
-                            } else {
-                                axios.delete(`/api/deleteHabit/${checkbox.dataset.habitId}`)
-                                .then(response => console.log(response))
-                            }
+                        axios.get('/api/userhabits')
+                        .then((response) => {
+                            response.data.forEach((userHabit)=> {
+                                console.log(userHabit)
+                                let checkbox = document.createElement('div')
+                                if(newHabit.habit == userHabit.habit_name) {
+                                    checkbox.innerHTML = `
+                                    <input type="checkbox" checked id="${newHabit.habits_list_id}">
+                                `
+                                } else {
+                                    checkbox.innerHTML = `
+                                    <input type="checkbox" id="${newHabit.habits_list_id}">
+                                    `
+                                }
+                                
+                                newLi.classList.add('toggle-display')
+                                // newLi.classList.add("list-group-item")
+                                newLi.textContent = newHabit.habit
+                                habitContainer.append(newLi)
+                                newLi.appendChild(checkbox)
+                                let habitCheckbox = document.getElementById(newHabit.habits_list_id)
+                                habitCheckbox.addEventListener('click', function() {
+                                    if(habitCheckbox.checked) {
+                                        axios.post('/api/addcustomhabit', {
+                                             habitname: newHabit.habit,
+                                             reminderfrequency: "Daily",
+                                             habits_list_id: newHabit.habits_list_id
+        
+                                            }).then((response) => {
+                                                checkbox.dataset.habitId = response.data.habitId
+                                            })
+                                    } else {
+                                        console.log(userHabit.user_habits_id)
+                                        axios.delete(`/api/deleteHabit/${userHabit.user_habits_id}`)
+                                        .then(response => console.log(response))
+                                    }
+                                })
+                                return
+                            })
+                            
                         })
+                        
                     })
                 })
 
