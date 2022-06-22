@@ -1,6 +1,6 @@
 export function renderCalender() {
-
-    var calendar = new tui.Calendar('#calendar', {
+  
+  var calendar = new tui.Calendar('#calendar', {
       disableClick: true,
       defaultView: 'month',
       taskView: true,
@@ -32,47 +32,7 @@ export function renderCalender() {
       })
       console.log(data)
       calendar.createSchedules(data)
+
     })
-
-  //   calendar.on('clickSchedule', function(event) {
-  //     const schedule = event.schedule;
-  //     if(schedule.bgColor !== 'blue') {
-  //       schedule.bgColor = 'blue'
-  //       console.log(event.schedule)
-  //     } else {
-  //       schedule.bgColor = 'black'
-  //     }
-      
-  //     calendar.render()
-
-  // });
-    
-
+    return calendar
 }
-
-export function addToCompletedHabit() {
-    
-}
-
-
-
-// [
-//   {
-//       // id: '1',
-//       // calendarId: '1',
-//       // title: 'my schedule',
-//       category: 'habit',
-//       dueDateClass: '',
-//       start: new Date(),
-//       // end: '2018-01-19T02:30:00+09:00'
-//   },
-//   {
-//       // id: '2',
-//       // calendarId: '1',
-//       title: 'second schedule',
-//       category: 'time',
-//       dueDateClass: '',
-//       start: new Date(),
-//       // end: '2018-01-19T17:31:00+09:00'
-//   }
-// ];

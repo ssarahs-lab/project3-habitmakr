@@ -113,3 +113,7 @@
     height: 150px;
     margin-bottom: 10px;
 }
+
+.tui-full-calendar-section-button {
+    display: none;
+}

@@ -65,11 +65,11 @@ export function renderHabitDashboard(){
                 let data = {
                     habit: userhabit.habit_name
                 }
-                console.log(data)
+                
 
                 axios.post('api/completedHabit', data)
                 .then((response) => {
-                    console.log(response)
+                    
                     renderCalender()
                 })
             })
@@ -85,7 +85,7 @@ export function renderHabitDashboard(){
 
                 response.data.forEach((completedHabit) => {
                     let completedDate = completedHabit.time_completed.split('T')
-                    console.log(completedDate, todayDate)
+
                     if(completedHabit.habit_name == userhabit.habit_name && completedDate[0] == todayDate[0]) {
                         completedBtn.textContent = 'Well done... See you tomorrow!'
                         completedBtn.disabled = true
