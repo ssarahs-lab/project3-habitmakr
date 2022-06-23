@@ -39,8 +39,6 @@ app.use('/api/users', usersController)
 
 
 app.get('/api/categories', (request, response) => {
-  
-
   const sql = "SELECT * FROM identities;"
   db.query(sql)
   .then((dbResult) => {
@@ -66,24 +64,26 @@ app.post('/api/addcustomhabit', (request, response)=>{
     response.json({success: false, message: "Must be logged in to add a habit."})
     return
   } else {
-    const sqlforUserHabitsTable = 'INSERT INTO user_habits(habit_name, user_determined_frequency_of_reminder, user_id, habits_list_id) VALUES ($1, $2, $3, $4);'
+    const sqlforUserHabitsTable = 'INSERT INTO user_habits(habit_name, user_determined_frequency_of_reminder, user_id) VALUES ($1, $2, $3) RETURNING *;'
 
     console.log(request.body)
     console.log(request.session.userId)
       
   
-    db.query(sqlforUserHabitsTable, [request.body.habitname, request.body.reminderfrequency, request.session.userId, request.body.habits_list_id])
+    db.query(sqlforUserHabitsTable, [request.body.habitname, request.body.reminderfrequency, request.session.userId])
     .then(dbResult => {
-      response.json({success: true})
+      console.log(dbResult)
+      response.json({success: true, habitId: dbResult.rows[0].user_habits_id})
     })
   }
   
 })
 
 app.delete('/api/deleteHabit/:id', (request, response) => {
-  let sql = `DELETE FROM user_habits WHERE habits_list_id = $1 AND user_id = $2`
+  let sql = `DELETE FROM user_habits WHERE user_habits_id = $1 AND user_id = $2`
   console.log(request.params.id)
-  db.query(sql, [request.params.id, request.session.userId])
+  let userId = request.session.userId
+  db.query(sql, [request.params.id, userId])
   .then((dbResult) => {
     response.json({
       success: true,
@@ -122,9 +122,6 @@ app.get('/api/userhabits', (request, response)=> {
       response.json(dbResult.rows)
 
   } )
-
-    
-
 })
 
 
@@ -204,7 +201,21 @@ app.get('/api/completedHabit', (req, res) => {
 })
 
 
+app.put('/api/editjournalentry/:id', (req,res) => {
+  let id = req.params.id
+  const {title,entry} = req.body
+  //console.log(id)
+  // console.log(title)
+  // console.log(entry)
+  let sql = 'UPDATE journal_entries SET title = $1, journal_entry = $2 WHERE id = $3'
+  db.query(sql, [title,entry,id])
+  .then((dbResponse) => {
+    console.log(dbResponse.rows[0])
+    res.json(dbResponse.rows[0])
+  })
 
+
+})
 
 app.listen(port, () => {
   console.log(`App listening on port http://localhost:${port}`)

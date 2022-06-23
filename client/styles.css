@@ -1,10 +1,4 @@
-/* @media only screen and (max-width: 768px) {
-    body {
-      grid-template-columns: 1fr !important;
-      grid-template-rows: 40px !important;
-    }
-    
-} */
+
 
 
 @media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ 
@@ -62,6 +56,10 @@
     background-color: black !important;
 }
 
+.toggle-height {
+    height: 100% !important;
+}
+
 /* categories */
 .divCard {
    
@@ -75,6 +73,7 @@
     align-items: center;
     justify-content: center; 
     display: inline-block;
+    padding: 30px 20px;
 }
 
 @media only screen and (min-width: 640px) {
@@ -83,10 +82,12 @@
         height: 18rem; 
     }
     
+    
 }
 
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    
 }
 
 .category-container {
@@ -158,6 +159,7 @@
     justify-content: center;
 }
 
+
 /* habits dashboard CSS */
 
 .reminderFrequencyCell {
@@ -179,4 +181,35 @@
 
 .completedCell {
     padding-left: 20%;
+
+input[type="checkbox"]:checked {
+    background-color: black;
+
+
+
+.navbar-btn {
+    background: none;
+    border-right: 1px solid grey !important;
+    border-radius: 0 !important;
+}
+#logout-btn {
+    border-right: none !important;
+}
+
+.navbar-btn:hover {
+    color: grey;
+}
+
+@media only screen and (max-width: 992px) {
+    .navbar-btn {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        border-right: none !important;
+    }
+    
+}
+
+.navbar-toggler:focus {
+    outline: black;
+
 }

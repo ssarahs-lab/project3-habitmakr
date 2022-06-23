@@ -1,5 +1,6 @@
 
 import { renderAddEntry } from "./renderAddEntry.js"
+import { renderEditEntry } from "./renderEditEntry.js"
 export function renderJournal() {
     const page = document.getElementById("page")
     const title = document.createElement('h3')
@@ -27,8 +28,10 @@ export function renderJournal() {
     page.replaceChildren(title,catImageGif,journalSection)
 
     axios.get('/api/journalentries').then((response) => {
-        console.log(response)
+       console.log(response)
         response.data.map(entry => {
+            const id = entry.id
+
             const {title,journal_entry, date_entered} = entry
             const div1 = document.createElement('div')
 
@@ -42,9 +45,19 @@ export function renderJournal() {
             const entry_date = document.createElement('p')
             entry_date.textContent = formattedDate
 
+            const editButton = document.createElement('button')
+            editButton.textContent = "Edit"
+            editButton.classList.add('btn')
+            editButton.addEventListener('click', (event) => {
+                renderEditEntry(id,title,journal_entry)
+                console.log(title)
+            })
+
+            
             div1.appendChild(entry_title)
             div1.appendChild(entry_date)
             div1.appendChild(journal_description)
+            div1.appendChild(editButton)
             page.appendChild(div1)
 
 
