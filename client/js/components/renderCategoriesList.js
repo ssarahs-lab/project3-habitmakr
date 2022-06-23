@@ -62,28 +62,55 @@ export function renderCategoriesList(){
                 .then((response) => {
                     response.data.forEach((newHabit) => {
                         let newLi = document.createElement('li')
-                        let checkbox = document.createElement('div')
-                        checkbox.innerHTML = `
-                            <input type="checkbox" id="${newHabit.habits_list_id}">
-                        `
-                        newLi.classList.add('toggle-display')
-                        // newLi.classList.add("list-group-item")
-                        newLi.textContent = newHabit.habit
-                        habitContainer.append(newLi)
-                        newLi.appendChild(checkbox)
-                        let habitCheckbox = document.getElementById(newHabit.habits_list_id)
-                        habitCheckbox.addEventListener('click', function() {
-                            if(habitCheckbox.checked) {
-                                axios.post('/api/addcustomhabit', {
-                                     habitname: newHabit.habit,
-                                     reminderfrequency: "Daily",
-                                     habits_list_id: newHabit.habits_list_id
+                        axios.get('/api/userhabits')
+                        .then((response) => {
+                            let isChecked = false
+                            let userHabitId = null
+                            response.data.forEach((userHabit)=> {
+                                // console.log(userHabit)
+                                if(newHabit.habit === userHabit.habit_name) {
+                                    isChecked = true
+                                    userHabitId = userHabit.user_habits_id
+                                }
+                                
+                            })
+                            let checkbox = document.createElement('div')
+                                if(isChecked) {
+                                    checkbox.innerHTML = `
+                                    <input type="checkbox" checked id="${newHabit.habit}">
+                                `
+                                    checkbox.dataset.habitId = userHabitId
+                                } else {
+                                    checkbox.innerHTML = `
+                                    <input type="checkbox" id="${newHabit.habit}">
+                                    `
+                                }
+                                
+                                newLi.classList.add('toggle-display')
+                                // newLi.classList.add("list-group-item")
+                                newLi.textContent = newHabit.habit
+                                habitContainer.append(newLi)
+                                newLi.appendChild(checkbox)
+                                let habitCheckbox = document.getElementById(newHabit.habit)
+                                habitCheckbox.addEventListener('change', function() {
+                                    if(habitCheckbox.checked) {
+                                        console.log('click')
+                                        axios.post('/api/addcustomhabit', {
+                                             habitname: newHabit.habit,
+                                             reminderfrequency: "Daily",
+                                             habits_list_id: newHabit.habits_list_id
+        
+                                            }).then((response) => {
+                                                checkbox.dataset.habitId = response.data.habitId
+                                            })
+                                    } else {
+                                        console.log(checkbox.dataset.habitId)
+                                        axios.delete(`/api/deleteHabit/${checkbox.dataset.habitId}`)
+                                        .then(response => console.log(response))
+                                    }
                                 })
-                            } else {
-                                axios.delete(`/api/deleteHabit/${newHabit.habits_list_id}`)
-                                .then(response => console.log(response))
-                            }
                         })
+                        
                     })
                 })
 
