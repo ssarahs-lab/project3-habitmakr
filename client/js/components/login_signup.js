@@ -140,12 +140,12 @@ export function handleLogout() {
             const signupBtn = document.getElementById('signup-btn')
             const username = document.getElementById('username')
             const categoriesBtn = document.getElementById('categories-btn')
-            const customHabitBtn = document.getElementById('custom-habit-btn')
+          
             const habitDashboardBtn = document.getElementById('habit-dashboard-btn')
             const journalEntryBtn = document.getElementById('journal-entry-btn')
             username.textContent = ''
             categoriesBtn.style.display = 'none'
-            customHabitBtn.style.display = 'none'
+         
             logoutBtn.style.display = 'none'
             habitDashboardBtn.style.display='none'
             journalEntryBtn.style.display='none'
@@ -169,26 +169,26 @@ export function getUser() {
             const logoutBtn = document.getElementById('logout-btn')
             const loginBtn = document.getElementById('login-btn')
             const signupBtn = document.getElementById('signup-btn')
-            const username = document.getElementById('username')
+            const usernameContainer = document.getElementById('usernameContainer')
             const categoriesBtn = document.getElementById('categories-btn')
-            const customHabitBtn = document.getElementById('custom-habit-btn')
+            
             const habitDashboardBtn = document.getElementById('habit-dashboard-btn')
             const journalEntryBtn = document.getElementById('journal-entry-btn')
             if(response.data.sessionName) {
                 console.log(response.data.sessionName)
-                username.textContent = `Hello ${response.data.sessionName}`
-                username.classList.add("align-baseline")
+                usernameContainer.textContent = `Welcome ${response.data.sessionName}`
+                usernameContainer.classList.add("align-baseline")
                 habitDashboardBtn.style.display='block'
                 categoriesBtn.style.display = 'block'
-                customHabitBtn.style.display = 'block'
+           
                 journalEntryBtn.style.display='block'
                 logoutBtn.style.display = 'block'    
                 loginBtn.style.display = 'none'
                 signupBtn.style.display = 'none'
             } else {
-                username.textContent = ''
+                usernameContainer.textContent = ''
                 categoriesBtn.style.display = 'none'
-                customHabitBtn.style.display = 'none'
+                
                 logoutBtn.style.display = 'none'
                 habitDashboardBtn.style.display='none'
                 journalEntryBtn.style.display='none'

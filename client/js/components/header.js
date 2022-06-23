@@ -24,7 +24,6 @@ export function renderHeader() {
 
         <button id= "habit-dashboard-btn" class="btn nav-btn">Habits' Dashboard</button>
         <button id= "categories-btn" class="btn nav-btn">Choose a premade habit</button>
-        <button id= "custom-habit-btn" class="btn nav-btn">Add a custom habit</button>
         
   
         <button id= "journal-entry-btn" class="btn nav-btn">Journal</button>
@@ -47,10 +46,6 @@ export function renderHeader() {
     const habitDashboardButton = document.getElementById("habit-dashboard-btn");
     habitDashboardButton.addEventListener('click', renderHabitDashboard)
 
-   
-
-    const customHabitButton = document.getElementById("custom-habit-btn");
-    customHabitButton.addEventListener('click', renderAddHabitForm);
     const journalEntryButton = document.getElementById("journal-entry-btn");
     journalEntryButton.addEventListener('click', renderJournal);
 
