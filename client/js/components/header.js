@@ -15,9 +15,7 @@ export function renderHeader() {
     let header = document.getElementById("header")
     header.innerHTML = "";
 
-    header.innerHTML = 
-
-        `
+    header.innerHTML = `
         <h1 id="title">Habit Makr</h1>
         <p> <span id="username"></span></p>
         <button id= "login-btn" class="btn nav-btn">Log in</button>

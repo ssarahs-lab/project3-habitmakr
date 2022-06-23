@@ -4,7 +4,7 @@ import { renderHabitDashboard } from "./renderHabitDashboard.js"
 export function loginPage() {
     //render the login page
     const page = document.getElementById('page')
-    page.innerHTML = ''
+    page.innerHTML = ""
     page.innerHTML = `
     <form id="login-form" class="form-control w-50 m-auto">
         <h1>Login</h1>
@@ -66,7 +66,7 @@ export function loginPage() {
 export function signupPage() {
     //render signup form
     const page = document.getElementById('page')
-    page.innerHTML = ''
+    page.innerHTML = ""
     page.innerHTML = `
     <form id="sign-up-form" class="form-control w-50 m-auto">
         <h1>Sign Up</h1>
