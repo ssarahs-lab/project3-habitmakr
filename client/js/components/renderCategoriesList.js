@@ -125,6 +125,7 @@ export function renderCategoriesList(){
                 
                 let newLi = habitContainer.querySelectorAll('li')
                 divCard.classList.toggle('toggle-background')
+                divCard.classList.toggle('toggle-height')
                 newLi.forEach((li) => li.classList.toggle('toggle-display'))
             })
 
