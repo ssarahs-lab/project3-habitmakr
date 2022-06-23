@@ -39,8 +39,6 @@ app.use('/api/users', usersController)
 
 
 app.get('/api/categories', (request, response) => {
-  
-
   const sql = "SELECT * FROM identities;"
   db.query(sql)
   .then((dbResult) => {
@@ -122,9 +120,6 @@ app.get('/api/userhabits', (request, response)=> {
       response.json(dbResult.rows)
 
   } )
-
-    
-
 })
 
 
@@ -204,7 +199,21 @@ app.get('/api/completedHabit', (req, res) => {
 })
 
 
+app.put('/api/editjournalentry/:id', (req,res) => {
+  let id = req.params.id
+  const {title,entry} = req.body
+  //console.log(id)
+  // console.log(title)
+  // console.log(entry)
+  let sql = 'UPDATE journal_entries SET title = $1, journal_entry = $2 WHERE id = $3'
+  db.query(sql, [title,entry,id])
+  .then((dbResponse) => {
+    console.log(dbResponse.rows[0])
+    res.json(dbResponse.rows[0])
+  })
 
+
+})
 
 app.listen(port, () => {
   console.log(`App listening on port http://localhost:${port}`)
