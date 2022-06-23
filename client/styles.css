@@ -64,6 +64,9 @@
         width: 18rem; 
         height: 18rem; 
     }
+    #nav-buttons {
+        align-items: center !important;
+    }
     
 }
 
@@ -136,4 +139,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.navbar-btn {
+    background: none;
+}
+
+.navbar-btn:hover {
+    color: grey;
 }
