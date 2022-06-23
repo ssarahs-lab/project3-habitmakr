@@ -1,12 +1,11 @@
 // user add custom habit
+import { renderHabitDashboard } from "./renderHabitDashboard.js";
 
 export function renderAddHabitForm() {
 
-    const page = document.getElementById('page')
-    page.innerHTML = ""
-    let calendar = document.getElementById('calendar')
-    calendar.innerHTML = ''
-
+    const addCustomHabitContainer = document.getElementById('addCustomHabitContainer')
+    addCustomHabitContainer.innerHTML = ""
+    
     const form = document.createElement("form");
     form.innerHTML = `
     <form id="add-habit-form">
@@ -45,6 +44,7 @@ export function renderAddHabitForm() {
             <div class="input-group-prepend">
 
 
+
       </div>
       </div >    
                 </select>
@@ -60,39 +60,50 @@ export function renderAddHabitForm() {
 
     `
 
-    page.appendChild(form)
+    addCustomHabitContainer.appendChild(form)
 
     form.addEventListener('submit', (event) =>{
 
         event.preventDefault()
 
-        let formData = new FormData(form)
+    let formData = new FormData(form)
 
-        let data = {
+    let data = {
 
-                habitname: formData.get('habitName'),
-                reminderfrequency: formData.get('frequencyOfReminder')
-        }
+            habitname: formData.get('habitName'),
+            reminderfrequency: formData.get('frequencyOfReminder')
+    }
+    
+    axios.post('/api/addcustomhabit', data)
+    .then((response) =>{
+        console.log(response)
         
-        axios.post('/api/addcustomhabit', data)
-        .then((response) =>{
-            console.log(response)
-            window.location = '/'
-        }).catch((error) => {
-            console.log(error)
-                //removes error message if exists to prevent multiple error messages
-                if(document.querySelector('.error-msg')) {
-                    document.querySelector('.error-msg').remove()
-                }
-                const errorMsg = document.createElement('p')
-                //JSON sent from the backend, changes dynamically dependant on what is missing
-                errorMsg.textContent = error.response.data.message
-                errorMsg.classList.add('error-msg')
-                
-                //add error message to top of form
-                form.prepend(errorMsg)
-        })
+       renderHabitDashboard()
+
+    }).catch((error) => {
+        console.log(error)
+            //removes error message if exists to prevent multiple error messages
+            if(document.querySelector('.error-msg')) {
+                document.querySelector('.error-msg').remove()
+            }
+            const errorMsg = document.createElement('p')
+            //JSON sent from the backend, changes dynamically dependant on what is missing
+            errorMsg.textContent = error.response.data.message
+            errorMsg.classList.add('error-msg')
+            
+            //add error message to top of form
+            form.prepend(errorMsg)
     })
 
+    
+       
+    })
+
+    
+
 }
+
+
+
+    
 

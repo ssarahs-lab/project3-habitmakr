@@ -1,5 +1,20 @@
 
 
+
+@media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ 
+
+    body {
+        font-size: 16px;
+    }
+
+}
+@media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
+@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
+@media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
+@media (min-width:1281px) { /* hi-res laptops and desktops */ }
+
+
 #header {
     display: flex;
     justify-content: space-between;
@@ -21,6 +36,9 @@
     
 }
 
+#usernameContainer {
+    padding-left: 1.5%;
+}
 
 /* body {
     display: grid;
@@ -79,6 +97,8 @@
     justify-content: center; 
 
 }
+
+/* Premade habits' card */
 
 .divCard > a {
     color: white;
@@ -140,6 +160,33 @@
 }
 
 
+/* habits dashboard CSS */
+
+.reminderFrequencyCell {
+
+    padding-left: 15%;
+
+
+}
+
+.habitNameCell {
+    padding-left: 2%;
+    padding-top: 2%;
+}
+
+.currentHabitsContainer {
+
+    padding-bottom: 10%;
+}
+
+.completedCell {
+    padding-left: 20%;
+
+input[type="checkbox"]:checked {
+    background-color: black;
+
+
+
 .navbar-btn {
     background: none;
     border-right: 1px solid grey !important;
@@ -164,4 +211,5 @@
 
 .navbar-toggler:focus {
     outline: black;
+
 }

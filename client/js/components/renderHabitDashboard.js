@@ -1,45 +1,42 @@
 import {renderCalender} from './testCalender.js'
+import { renderAddHabitForm } from './addHabit.js'
 
 export function renderHabitDashboard(){
 
     page.innerHTML = ""
+
+    // calendar button 
+    let currentHabitsContainer = document.createElement('div');
+    let addCustomHabitContainer = document.createElement('div');
     let calenderBtn = document.createElement('button')
-    calenderBtn.textContent = "Calender"
+    let addCustomHabitBtn = document.createElement('button')
+    
+    calenderBtn.innerHTML = '<i class=\'far fa-calendar-alt\'></i>';
     calenderBtn.classList.add('btn')
     calenderBtn.addEventListener('click', function() {
         let calendar = document.getElementById('calendar')
         calendar.innerHTML = ''
         renderCalender()
     })
-    page.appendChild(calenderBtn)
-
-    let habitDashboardContainer = document.createElement('div')
-    habitDashboardContainer.classList.add("habitDashboardContainer")
    
-    page.appendChild(habitDashboardContainer)
+
+    // current habits display
+   
+  
+    currentHabitsContainer.classList.add("currentHabitsContainer");
+   
+    page.appendChild(currentHabitsContainer)
 
     const masterListHeading = document.createElement("h3");
     masterListHeading.textContent = "Current Habits"
-    habitDashboardContainer.appendChild(masterListHeading)
-
-    // let catImageGif = document.createElement('img')
-          
-    // catImageGif.src = "https://i.gifer.com/4g8n.gif"
-    // catImageGif.style.width = '30vw'
-    // habitDashboardContainer.appendChild(catImageGif)  
-    
-    // https://i.gifer.com/ICtO.gif
+    currentHabitsContainer.appendChild(masterListHeading)
 
     axios
     .get("api/userhabits")
     .then((response) => {
 
-        
+              response.data.forEach((userhabit)=> {
 
-        response.data.forEach((userhabit)=> {
-
-        
-           
             let habitDashboardDiv = document.createElement('div');
             habitDashboardDiv.classList.add("habitDashboardDiv")
 
@@ -48,18 +45,22 @@ export function renderHabitDashboard(){
             let reminderFrequencyCell = document.createElement('td');
             let completedCell = document.createElement('td')
             let completedBtn = document.createElement('button')
+            
+
+
             completedBtn.classList.add('btn')
             completedBtn.textContent = 'Complete'
-
-                 
-            habitDashboardContainer.appendChild(tableRow);
+                          
+            currentHabitsContainer.appendChild(tableRow);
             habitNameCell.textContent = userhabit.habit_name;
-            habitNameCell.setAttribute = ('width', '70px' )
+            habitNameCell.classList.add("habitNameCell");
             reminderFrequencyCell.textContent = userhabit.user_determined_frequency_of_reminder;
+            reminderFrequencyCell.classList.add("reminderFrequencyCell");
             tableRow.appendChild(habitNameCell);
             tableRow.appendChild(reminderFrequencyCell);
-            tableRow.appendChild(completedCell)
-            completedCell.appendChild(completedBtn)
+            tableRow.appendChild(completedCell);
+            completedCell.appendChild(completedBtn);
+            completedCell.classList.add("completedCell")
 
             completedBtn.addEventListener('click', function(){
                 console.log('click')
@@ -76,8 +77,6 @@ export function renderHabitDashboard(){
                     renderCalender()
                 })
             })
-
-            
 
             axios.get('api/completedHabit')
             .then((response) => {
@@ -98,20 +97,33 @@ export function renderHabitDashboard(){
                     }
                 })
             })
-
-      
-        
-        
         
         }
-
-            
-
-            // userhabit.habit_name
-            //userhabit.user_determined_frequency_of_reminder
 
         )}
 
     )
 
+    
+
+    page.appendChild(addCustomHabitContainer)
+    
+
+   
+    addCustomHabitBtn.innerHTML = '<i class="fas fa-plus"></i>'
+    addCustomHabitBtn.classList.add('btn')
+    addCustomHabitBtn.addEventListener('click', renderAddHabitForm)
+
+    //add custom habit button
+  
+    addCustomHabitContainer.setAttribute('id','addCustomHabitContainer')
+    
+    currentHabitsContainer.appendChild(calenderBtn)
+
+    currentHabitsContainer.appendChild(addCustomHabitBtn)
+    
+    
+    
     }
+
+
