@@ -117,3 +117,23 @@
 .tui-full-calendar-section-button {
     display: none;
 }
+
+
+.div-for-gif {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-for-gif {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5%;
+}
+
+.div-for-quote {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
