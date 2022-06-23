@@ -1,10 +1,4 @@
-/* @media only screen and (max-width: 768px) {
-    body {
-      grid-template-columns: 1fr !important;
-      grid-template-rows: 40px !important;
-    }
-    
-} */
+
 
 
 @media (min-width:320px)  { /* smartphones, iPhone, portrait 480x320 phones */ 
@@ -88,6 +82,7 @@
         height: 18rem; 
     }
     
+    
 }
 
 .card:hover {
@@ -164,6 +159,7 @@
     justify-content: center;
 }
 
+
 /* habits dashboard CSS */
 
 .reminderFrequencyCell {
@@ -188,5 +184,32 @@
 
 input[type="checkbox"]:checked {
     background-color: black;
+
+
+
+.navbar-btn {
+    background: none;
+    border-right: 1px solid grey !important;
+    border-radius: 0 !important;
+}
+#logout-btn {
+    border-right: none !important;
+}
+
+.navbar-btn:hover {
+    color: grey;
+}
+
+@media only screen and (max-width: 992px) {
+    .navbar-btn {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        border-right: none !important;
+    }
+    
+}
+
+.navbar-toggler:focus {
+    outline: black;
 
 }

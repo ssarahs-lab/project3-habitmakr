@@ -73,7 +73,7 @@ export function renderHabitDashboard(){
 
                 axios.post('api/completedHabit', data)
                 .then((response) => {
-                    
+                    calendar.innerHTML = ""
                     renderCalender()
                 })
             })
