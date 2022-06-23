@@ -18,7 +18,7 @@ export function renderHeader() {
     header.innerHTML = `
         <h1 id="title" class="navbar-brand">Habit Makr</h1>
         <p> <span id="username"></span></p>
-        <div class="collapse navbar-collapse justify-content-center" id="nav-buttons">
+        <div class="collapse navbar-collapse justify-content-end" id="nav-buttons">
         <button id= "login-btn" class="navbar-btn btn nav-btn">Log in</button>
        
         <button id= "signup-btn" class="navbar-btn btn nav-btn">Sign up</button>

@@ -1,10 +1,4 @@
-/* @media only screen and (max-width: 768px) {
-    body {
-      grid-template-columns: 1fr !important;
-      grid-template-rows: 40px !important;
-    }
-    
-} */
+
 
 #header {
     display: flex;
@@ -69,9 +63,7 @@
         width: 18rem; 
         height: 18rem; 
     }
-    #nav-buttons {
-        align-items: center !important;
-    }
+    
     
 }
 
@@ -150,8 +142,26 @@
 
 .navbar-btn {
     background: none;
+    border-right: 1px solid grey !important;
+    border-radius: 0 !important;
+}
+#logout-btn {
+    border-right: none !important;
 }
 
 .navbar-btn:hover {
     color: grey;
+}
+
+@media only screen and (max-width: 992px) {
+    .navbar-btn {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        border-right: none !important;
+    }
+    
+}
+
+.navbar-toggler:focus {
+    outline: black;
 }
