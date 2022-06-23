@@ -31,7 +31,8 @@ In the terminal:
     npm install nodemon
     npm install pg 
     npm install express-sessiom
-    npm start
+    npm start  // or npm run start:dev
+
 
 
 ## Installation instructions (if database has changed)
@@ -45,7 +46,7 @@ Locally:
 	
 Then restart local server:
 
-    npm start
+    npm start  // or npm run start:dev
 
 On Heroku: 
 
