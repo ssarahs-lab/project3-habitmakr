@@ -64,16 +64,25 @@ export function renderCategoriesList(){
                         let newLi = document.createElement('li')
                         axios.get('/api/userhabits')
                         .then((response) => {
+                            let isChecked = false
+                            let userHabitId = null
                             response.data.forEach((userHabit)=> {
-                                console.log(userHabit)
-                                let checkbox = document.createElement('div')
-                                if(newHabit.habit == userHabit.habit_name) {
+                                // console.log(userHabit)
+                                if(newHabit.habit === userHabit.habit_name) {
+                                    isChecked = true
+                                    userHabitId = userHabit.user_habits_id
+                                }
+                                
+                            })
+                            let checkbox = document.createElement('div')
+                                if(isChecked) {
                                     checkbox.innerHTML = `
-                                    <input type="checkbox" checked id="${newHabit.habit_name}">
+                                    <input type="checkbox" checked id="${newHabit.habit}">
                                 `
+                                    checkbox.dataset.habitId = userHabitId
                                 } else {
                                     checkbox.innerHTML = `
-                                    <input type="checkbox" id="${newHabit.habit_name}">
+                                    <input type="checkbox" id="${newHabit.habit}">
                                     `
                                 }
                                 
@@ -82,9 +91,10 @@ export function renderCategoriesList(){
                                 newLi.textContent = newHabit.habit
                                 habitContainer.append(newLi)
                                 newLi.appendChild(checkbox)
-                                let habitCheckbox = document.getElementById(newHabit.habit_name)
-                                habitCheckbox.addEventListener('click', function() {
+                                let habitCheckbox = document.getElementById(newHabit.habit)
+                                habitCheckbox.addEventListener('change', function() {
                                     if(habitCheckbox.checked) {
+                                        console.log('click')
                                         axios.post('/api/addcustomhabit', {
                                              habitname: newHabit.habit,
                                              reminderfrequency: "Daily",
@@ -94,13 +104,11 @@ export function renderCategoriesList(){
                                                 checkbox.dataset.habitId = response.data.habitId
                                             })
                                     } else {
-                                        console.log(userHabit.user_habits_id)
-                                        axios.delete(`/api/deleteHabit/${userHabit.user_habits_id}`)
+                                        console.log(checkbox.dataset.habitId)
+                                        axios.delete(`/api/deleteHabit/${checkbox.dataset.habitId}`)
                                         .then(response => console.log(response))
                                     }
                                 })
-                            })
-                            
                         })
                         
                     })
