@@ -85,7 +85,7 @@ color: rgb(196, 194, 194) !important;
 
 /* categories */
 .divCard {
-   
+    filter: grayscale(100%);
     height: 125px;
     width: 100%;
     border-radius: 5px;
@@ -207,12 +207,12 @@ color: rgb(196, 194, 194) !important;
 
 .completedCell {
     padding-left: 20%;
-
+}
 input[type="checkbox"]:checked {
     background-color: black;
 
 
-
+}
 .navbar-btn {
     background: none;
     border-right: 1px solid grey !important;
@@ -238,4 +238,12 @@ input[type="checkbox"]:checked {
 .navbar-toggler:focus {
     outline: black;
 
+}
+
+.tui-full-calendar-weekday-grid-date {
+    color: black;
+}
+
+#nav-buttons {
+    transition: all 1s;
 }
