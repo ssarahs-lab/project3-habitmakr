@@ -217,3 +217,7 @@ input[type="checkbox"]:checked {
 .tui-full-calendar-weekday-grid-date {
     color: black;
 }
+
+#nav-buttons {
+    transition: all 1s;
+}
