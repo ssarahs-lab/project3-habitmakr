@@ -1,6 +1,7 @@
 import {loginPage, signupPage, handleLogout, getUser} from './login_signup.js'
 import{renderCategoriesList} from './renderCategoriesList.js'
 import{renderAddHabitForm} from './addHabit.js'
+import { renderLandingPage } from './renderLandingPage.js'
 
 import{renderHabitDashboard} from './renderHabitDashboard.js'
 
@@ -16,7 +17,7 @@ export function renderHeader() {
     header.innerHTML = "";
 
     header.innerHTML = `
-        <h1 id="title" class="navbar-brand">Habit Makr</h1>
+        <img id="habitMakrLogo" src="https://i.imgur.com/EjgNg8N.png"  onclick="renderLandingPage()" />
         <p> <span id="username"></span></p>
         <div class="collapse navbar-collapse justify-content-end" id="nav-buttons">
         <button id= "login-btn" class="navbar-btn btn nav-btn">Log in</button>
@@ -43,6 +44,9 @@ export function renderHeader() {
         `
     const loginButton = document.getElementById("login-btn");
     loginButton.addEventListener('click', loginPage)
+
+    const habitMakrLogo = document.getElementById("habitMakrLogo");
+    habitMakrLogo.addEventListener('click', renderLandingPage)
 
     const signupButton = document.getElementById("signup-btn");
     signupButton.addEventListener('click', signupPage)

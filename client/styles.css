@@ -36,8 +36,14 @@
     
 }
 
+#habitMakrLogo {
+    width: 200px;
+    
+}
+
 #usernameContainer {
     padding-left: 1.5%;
+    width: 20%;
 }
 
 /* body {
