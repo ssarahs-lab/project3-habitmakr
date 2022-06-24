@@ -65,6 +65,7 @@ export function renderHabitDashboard(){
 
                 axios.post('api/completedHabit', data)
                 .then((response) => {
+                
                 })
             })
 
@@ -73,15 +74,18 @@ export function renderHabitDashboard(){
                 //gets todays date
                 let today = moment(new Date()).format()
                 let todayDate = today.split("T")
+                
 
 
                 response.data.forEach((completedHabit) => {
-                    let completedDate = completedHabit.time_completed.split('T')
+                    //converts the backend timestamp to the users correct timezone
+                    let completedDate = (moment(new Date(completedHabit.time_completed)).format()).split('T')
                     //checks to see if todays date is the same as the day the habit was completed
                     //if there is a match, the button with be disabled until the following day
+                    
 
                     if(completedHabit.habit_name == userhabit.habit_name && completedDate[0] == todayDate[0]) {
-                        completedBtn.textContent = 'Well done... See you tomorrow!'
+                        completedBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i>'
                         completedBtn.disabled = true
 
                     }
