@@ -5,8 +5,7 @@ export function renderJournal() {
     const page = document.getElementById("page")
     const title = document.createElement('h3')
     title.textContent = "Journal"
-    let calendar = document.getElementById('calendar')
-    calendar.innerHTML = ''
+
 
     const journalSection = document.createElement('div')
     journalSection.classList.add("journal-section")

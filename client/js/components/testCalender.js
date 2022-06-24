@@ -1,7 +1,8 @@
 export function renderCalender() {
-  let calendarEl = document.getElementById('calendar')
+  let page = document.getElementById('page')
+  page.innerHTML = ''
   //initialises the calendar
-  let calendar = new tui.Calendar(calendarEl, {
+  let calendar = new tui.Calendar(page, {
       disableClick: true,
       defaultView: 'month',
       taskView: true,

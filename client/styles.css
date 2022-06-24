@@ -181,12 +181,12 @@
 
 .completedCell {
     padding-left: 20%;
-
+}
 input[type="checkbox"]:checked {
     background-color: black;
 
 
-
+}
 .navbar-btn {
     background: none;
     border-right: 1px solid grey !important;
