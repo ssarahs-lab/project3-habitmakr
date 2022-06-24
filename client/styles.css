@@ -218,6 +218,10 @@ input[type="checkbox"]:checked {
     color: black;
 }
 
+.tui-full-calendar-weekday-grid-date-decorator {
+    background-color: black;
+}
+
 #nav-buttons {
     transition: all 1s;
 }
