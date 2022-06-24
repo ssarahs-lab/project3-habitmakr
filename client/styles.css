@@ -62,7 +62,7 @@
 
 /* categories */
 .divCard {
-   
+    filter: grayscale(100%);
     height: 125px;
     width: 100%;
     border-radius: 5px;
