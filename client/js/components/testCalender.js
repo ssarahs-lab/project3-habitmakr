@@ -9,8 +9,11 @@ export function renderCalender() {
       useDetailPopup: true,
       template: {
         monthDayname: function(dayname) {
-          return '<span class="calendar-week-dayname-name">' + dayname.label + '</span>';
+          return '<span style="color: black;" "class="calendar-week-dayname-name">' + dayname.label + '</span>';
         },
+        weekDayname: function(model) {
+          return '<span class="tui-full-calendar-dayname-date">' + model.date + '</span>&nbsp;&nbsp;<span class="tui-full-calendar-dayname-name">' + model.dayName + '</span>';
+      },
         popupEdit: function() {
           return null;
        },
@@ -32,7 +35,7 @@ export function renderCalender() {
           category: 'time',
           start: time_completed[0],
           isAllDay: true,
-          bgColor: 'black',
+          bgColor: 'grey',
           color: 'white'
         }
       })
