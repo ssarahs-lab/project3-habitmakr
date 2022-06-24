@@ -7,9 +7,24 @@
         font-size: 16px;
     }
 
+    #usernameContainer {
+        display: grid;
+        place-items: center;
+    }
+
 }
-@media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ }
-@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ }
+@media (min-width:481px)  { /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */ 
+
+    #usernameContainer {
+        display: grid;
+        place-items: center;
+    }
+}
+@media (min-width:641px)  { /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */ 
+    #usernameContainer {
+        display: grid;
+        place-items: center;
+    }}
 @media (min-width:961px)  { /* tablet, landscape iPad, lo-res laptops ands desktops */ }
 @media (min-width:1025px) { /* big landscape tablets, laptops, and desktops */ }
 @media (min-width:1281px) { /* hi-res laptops and desktops */ }
@@ -36,10 +51,18 @@
     
 }
 
+#habitMakrLogo {
+    width: 200px;
+    
+}
+
 #usernameContainer {
     padding-left: 1.5%;
 }
 
+h5 {
+color: rgb(196, 194, 194) !important;
+}
 /* body {
     display: grid;
     grid-template-columns: 1fr 3fr;
@@ -147,16 +170,19 @@
 }
 
 .div-for-gif {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
     margin: 5%;
+    margin-bottom: 1px;
 }
 
 .div-for-quote {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
+    padding: 5%;
+    text-align: center;
 }
 
 

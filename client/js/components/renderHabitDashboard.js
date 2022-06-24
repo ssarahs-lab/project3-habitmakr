@@ -41,7 +41,7 @@ export function renderHabitDashboard(){
 
 
             completedBtn.classList.add('btn')
-            completedBtn.textContent = 'Complete'
+            completedBtn.innerHTML = '<i class="fas fa-check"></i>'
                           
             currentHabitsContainer.appendChild(tableRow);
             habitNameCell.textContent = userhabit.habit_name;
@@ -57,7 +57,7 @@ export function renderHabitDashboard(){
             completedBtn.addEventListener('click', function(){
                 console.log('click')
                 completedBtn.disabled = true
-                completedBtn.textContent = 'Well done... See you tomorrow!'
+                completedBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i>'
                 let data = {
                     habit: userhabit.habit_name
                 }
