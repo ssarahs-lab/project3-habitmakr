@@ -8,17 +8,9 @@ export function renderHabitDashboard(){
     // calendar button 
     let currentHabitsContainer = document.createElement('div');
     let addCustomHabitContainer = document.createElement('div');
-    let calenderBtn = document.createElement('button')
     let addCustomHabitBtn = document.createElement('button')
     
-    calenderBtn.innerHTML = '<i class=\'far fa-calendar-alt\'></i>';
-    calenderBtn.classList.add('btn')
-    calenderBtn.addEventListener('click', function() {
-        let calendar = document.getElementById('calendar')
-        calendar.innerHTML = ''
-        renderCalender()
-    })
-   
+
 
     // current habits display
    
@@ -73,8 +65,6 @@ export function renderHabitDashboard(){
 
                 axios.post('api/completedHabit', data)
                 .then((response) => {
-                    calendar.innerHTML = ""
-                    renderCalender()
                 })
             })
 
@@ -118,7 +108,6 @@ export function renderHabitDashboard(){
   
     addCustomHabitContainer.setAttribute('id','addCustomHabitContainer')
     
-    currentHabitsContainer.appendChild(calenderBtn)
 
     currentHabitsContainer.appendChild(addCustomHabitBtn)
     

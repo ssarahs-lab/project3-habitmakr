@@ -1,7 +1,7 @@
 import {loginPage, signupPage, handleLogout, getUser} from './login_signup.js'
 import{renderCategoriesList} from './renderCategoriesList.js'
 import{renderAddHabitForm} from './addHabit.js'
-
+import { renderCalender } from './testCalender.js'
 import{renderHabitDashboard} from './renderHabitDashboard.js'
 
 import {renderJournal} from './renderJournal.js'
@@ -19,6 +19,7 @@ export function renderHeader() {
         <h1 id="title" class="navbar-brand">Habit Makr</h1>
         <p> <span id="username"></span></p>
         <div class="collapse navbar-collapse justify-content-end" id="nav-buttons">
+        <button id="calender-btn" class="navbar-btn btn nav-btn"><i class=\'far fa-calendar-alt\'></i></button>
         <button id= "login-btn" class="navbar-btn btn nav-btn">Log in</button>
        
         <button id= "signup-btn" class="navbar-btn btn nav-btn">Sign up</button>
@@ -58,6 +59,9 @@ export function renderHeader() {
 
     const journalEntryButton = document.getElementById("journal-entry-btn");
     journalEntryButton.addEventListener('click', renderJournal);
+
+    const calenderBtn = document.getElementById('calender-btn')
+    calenderBtn.addEventListener('click', renderCalender)
 
 
     getUser()

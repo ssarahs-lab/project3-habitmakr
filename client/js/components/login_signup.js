@@ -171,6 +171,7 @@ export function getUser() {
             const signupBtn = document.getElementById('signup-btn')
             const usernameContainer = document.getElementById('usernameContainer')
             const categoriesBtn = document.getElementById('categories-btn')
+            const calenderBtn = document.getElementById('calender-btn')
             
             const habitDashboardBtn = document.getElementById('habit-dashboard-btn')
             const journalEntryBtn = document.getElementById('journal-entry-btn')
@@ -180,6 +181,7 @@ export function getUser() {
                 usernameContainer.classList.add("align-baseline")
                 habitDashboardBtn.style.display='block'
                 categoriesBtn.style.display = 'block'
+                calenderBtn.style.display = 'block'
            
                 journalEntryBtn.style.display='block'
                 logoutBtn.style.display = 'block'    
@@ -188,7 +190,7 @@ export function getUser() {
             } else {
                 usernameContainer.textContent = ''
                 categoriesBtn.style.display = 'none'
-                
+                calenderBtn.style.display = 'none'
                 logoutBtn.style.display = 'none'
                 habitDashboardBtn.style.display='none'
                 journalEntryBtn.style.display='none'

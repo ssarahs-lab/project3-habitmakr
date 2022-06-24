@@ -2,8 +2,6 @@
 export function renderAddEntry() {
     console.log('renderAddEntry')
     const page = document.getElementById("page")
-    let calendar = document.getElementById('calendar')
-    calendar.innerHTML = ''
 
     const journalForm = document.createElement('form')
     journalForm.innerHTML = `
