@@ -3,7 +3,7 @@ DROP TABLE IF EXISTS pet_plant_sprite;
 DROP TABLE IF EXISTS user_habit_log;
 DROP TABLE IF EXISTS user_habits;
 DROP TABLE IF EXISTS habits_list;
---DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS identities;
 DROP TABLE IF EXISTS journal_entries CASCADE;
 
@@ -16,14 +16,14 @@ CREATE TABLE identities (
     image_related_identity_url VARCHAR(255)
 );
 
--- CREATE TABLE users (
---     id SERIAL PRIMARY KEY,
---     username VARCHAR(255),
---     email VARCHAR(255),
---     password_hash VARCHAR(255),
---     last_login TIMESTAMP, 
---     account_created TIMESTAMP NOT NULL DEFAULT NOW()
--- );
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255),
+    email VARCHAR(255),
+    password_hash VARCHAR(255),
+    last_login TIMESTAMP, 
+    account_created TIMESTAMP NOT NULL DEFAULT NOW()
+);
 
 -- master / general public habits list
 
