@@ -6,17 +6,16 @@ export const quotes = [
    
     "Habits are mental shortcuts learned from experience",
     'You do not rise to the level of your goals. You fall to the level of your systems.',
-'When you fall in love with the process rather than the product, you don’t have to wait to give yourself permission to be happy. You can be satisfied anytime your system is running.',
-'Goals are good for setting a direction, but systems are best for making progress.',
-'Habits are the compound interest of self-improvement.',
-'The seed of every habit is a single, tiny decision. But as that decision is repeated, a habit sprouts and grows stronger. Roots entrench themselves and branches grow. ',
-'The task of breaking a bad habit is like uprooting a powerful oak within us. \n And the task of building a good habit is like cultivating a delicate flower one day at a time.',
-'Every action you take is a vote for the type of person you wish to become.',
-'Success is the product of daily habits—not once-in-a-lifetime transformations.',
-'Professionals stick to the schedule; amateurs let life get in the way.',
-'You don’t have to be the victim of your environment. You can also be the architect of it.',
-'The ultimate form of intrinsic motivation is when a habit becomes part of your identity. It’s one thing to say I’m the type of person who wants this. It’s something very different to say I’m the type of person who is this.'
-    
+    'When you fall in love with the process rather than the product, you don’t have to wait to give yourself permission to be happy. You can be satisfied anytime your system is running.',
+    'Goals are good for setting a direction, but systems are best for making progress.',
+    'Habits are the compound interest of self-improvement.',
+    'The seed of every habit is a single, tiny decision. But as that decision is repeated, a habit sprouts and grows stronger. Roots entrench themselves and branches grow. ',
+    'The task of breaking a bad habit is like uprooting a powerful oak within us. \n And the task of building a good habit is like cultivating a delicate flower one day at a time.',
+    'Every action you take is a vote for the type of person you wish to become.',
+    'Success is the product of daily habits—not once-in-a-lifetime transformations.',
+    'Professionals stick to the schedule; amateurs let life get in the way.',
+    'You don’t have to be the victim of your environment. You can also be the architect of it.',
+    'The ultimate form of intrinsic motivation is when a habit becomes part of your identity. It’s one thing to say I’m the type of person who wants this. It’s something very different to say I’m the type of person who is this.'
 ]
 
 export const gifs = [
@@ -65,8 +64,8 @@ export function renderLandingPage() {
     quoteAndGifDiv.appendChild(quoteCredit)
     // stuff for the gifs
     const gifDiv = document.createElement('div')
-    gifDiv.classList.add('div-for-gif')
-    gifDiv.innerHTML = `<img src="${gif}" width=100%>`
+    gifDiv.classList.add('div-for-landing-gif')
+    gifDiv.innerHTML = `<img src="${gif}" width=80%>`
    
 
 
