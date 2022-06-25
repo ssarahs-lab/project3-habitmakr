@@ -8,6 +8,10 @@ export function renderCategoriesList(){
     let categoryImgURL = []
     let categoryContainer = document.createElement('div')
     categoryContainer.classList.add('category-container')
+    let msg = document.createElement('p')
+    msg.textContent = ' '
+    msg.style.height = '10px'
+    page.prepend(msg)
     
 
     let h2 = document.createElement('h2')
@@ -99,6 +103,9 @@ export function renderCategoriesList(){
                                 let habitCheckbox = document.getElementById(newHabit.habit)
                                 habitCheckbox.addEventListener('change', function() {
                                     if(habitCheckbox.checked) {
+                                        msg.textContent = 'Habit added!'
+                                        
+                                        
                                         console.log('click')
                                         axios.post('/api/addcustomhabit', {
                                              habitname: newHabit.habit,
@@ -107,11 +114,20 @@ export function renderCategoriesList(){
         
                                             }).then((response) => {
                                                 checkbox.dataset.habitId = response.data.habitId
+                                                
                                             })
+                                            setTimeout(function() {
+                                                msg.textContent = ' '
+                                            }, 2000)
+                                            
                                     } else {
+                                        msg.textContent = 'Habit removed!'
                                         console.log(checkbox.dataset.habitId)
                                         axios.delete(`/api/deleteHabit/${checkbox.dataset.habitId}`)
                                         .then(response => console.log(response))
+                                        setTimeout(function() {
+                                            msg.textContent = ' '
+                                        }, 2000)
                                     }
                                 })
                         })
