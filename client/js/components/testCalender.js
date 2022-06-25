@@ -1,6 +1,9 @@
 export function renderCalender() {
   let page = document.getElementById('page')
   page.innerHTML = ''
+  page.classList.add("animate__animated");
+    page.classList.add("animate__fadeIn")
+
   //initialises the calendar
   let calendar = new tui.Calendar(page, {
       disableClick: true,

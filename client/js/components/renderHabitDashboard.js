@@ -22,6 +22,8 @@ export function renderHabitDashboard(){
     const masterListHeading = document.createElement("h3");
     masterListHeading.textContent = "Current Habits"
     currentHabitsContainer.appendChild(masterListHeading)
+    masterListHeading.classList.add("animate__animated");
+    masterListHeading.classList.add("animate__fadeIn")
 
     axios
     .get("api/userhabits")
@@ -32,13 +34,20 @@ export function renderHabitDashboard(){
             let habitDashboardDiv = document.createElement('div');
             habitDashboardDiv.classList.add("habitDashboardDiv")
 
+           
+
             let tableRow = document.createElement('tr');
             let habitNameCell = document.createElement('td');
             let reminderFrequencyCell = document.createElement('td');
             let completedCell = document.createElement('td')
             let completedBtn = document.createElement('button')
             
-
+            habitNameCell.classList.add("animate__animated");
+            habitNameCell.classList.add("animate__fadeIn")
+            reminderFrequencyCell.classList.add("animate__animated");
+           reminderFrequencyCell.classList.add("animate__fadeIn")
+            completedCell.classList.add("animate__animated");
+             completedCell.classList.add("animate__fadeIn")
 
             completedBtn.classList.add('btn')
             completedBtn.innerHTML = '<i class="fas fa-check"></i>'
