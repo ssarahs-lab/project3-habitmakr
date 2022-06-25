@@ -218,6 +218,12 @@ color: rgb(196, 194, 194) !important;
     text-align: center;
 }
 
+.div-for-landing-gif {
+    margin: auto;
+    width: 80%;
+    padding: 10px;
+    text-align: center;
+}
 
 /* habits dashboard CSS */
 
