@@ -28,7 +28,7 @@ export function renderCalender() {
     .then((response) => {
       
       let data = response.data.map((habit) => {
-        let time_completed = habit.time_completed.split("T")
+        let time_completed = (moment(new Date(habit.time_completed)).format()).split('T')
         return {
           id: habit.user_habit_log_id,
           title: habit.habit_name,
