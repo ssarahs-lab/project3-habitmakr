@@ -5,20 +5,34 @@ export function renderJournal() {
     const page = document.getElementById("page")
     const title = document.createElement('h3')
     title.textContent = "Journal"
+   title.classList.add("animate__animated");
+    title.classList.add("animate__fadeIn")
 
 
     const journalSection = document.createElement('div')
     journalSection.classList.add("journal-section")
 
-    const entrybutton = document.createElement('button')
-    entrybutton.classList.add("btn")
-    entrybutton.textContent = "Add entry"
-    entrybutton.addEventListener('click', renderAddEntry)
+    journalSection.classList.add("animate__animated");
+    journalSection.classList.add("animate__fadeIn")
 
     let catImageGif = document.createElement('img')
           
     catImageGif.src = " https://i.gifer.com/ICtO.gif"
     catImageGif.style.width = '300px'
+
+   catImageGif.classList.add("animate__animated");
+    catImageGif.classList.add("animate__fadeIn")
+
+
+
+    const entrybutton = document.createElement('button')
+    entrybutton.classList.add("btn")
+    entrybutton.textContent = "Add entry"
+    entrybutton.addEventListener('click', renderAddEntry)
+    entrybutton.classList.add("animate__animated");
+    entrybutton.classList.add("animate__fadeIn")
+
+   
  
 
 
@@ -36,9 +50,15 @@ export function renderJournal() {
 
             const entry_title = document.createElement('h3')
             entry_title.textContent = title
+            entry_title.classList.add("animate__animated");
+    entry_title.classList.add("animate__fadeIn")
+
 
             const journal_description = document.createElement('p')
             journal_description.textContent = journal_entry
+            journal_description.classList.add("animate__animated");
+    journal_description.classList.add("animate__fadeIn")
+
 
             const formattedDate = moment(date_entered).calendar()
             const entry_date = document.createElement('p')

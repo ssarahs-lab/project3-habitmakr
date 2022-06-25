@@ -20,6 +20,9 @@ export function renderHeader() {
     let header = document.getElementById("header")
     header.innerHTML = "";
 
+    header.classList.add("animate__animated");
+           header.classList.add("animate__fadeIn")
+
     header.innerHTML = `
         <img id="habitMakrLogo" src="https://i.imgur.com/EjgNg8N.png"  onclick="renderLandingPage()" />
         <p> <span id="username"></span></p>

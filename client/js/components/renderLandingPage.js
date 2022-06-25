@@ -40,11 +40,17 @@ export function renderLandingPage() {
 
     const usernameContainer = document.getElementById('usernameContainer')
     usernameContainer.innerHTML = " "
+   usernameContainer.classList.add("animate__animated");
+           usernameContainer.classList.add("animate__fadeIn")
+
 
     const page = document.getElementById('page')
     
     page.innerHTML = ""
     // stuff for the quotes
+    page.classList.add("animate__animated");
+            page.classList.add("animate__fadeIn")
+
     
   
     const quoteCredit = document.createElement('h5')

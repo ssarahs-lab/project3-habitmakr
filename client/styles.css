@@ -68,6 +68,13 @@ color: rgb(196, 194, 194) !important;
     grid-template-columns: 1fr 3fr;
 } */
 
+/* animate page load */
+
+.animate__animated.animate__fadeIn {
+    --animate-duration: 2s;
+  }
+  
+
 /* use with variable.classList.toggle('toggle-display') to show and hide an element */
 .toggle-display {
     display: none !important;
