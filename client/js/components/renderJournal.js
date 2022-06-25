@@ -3,8 +3,9 @@ import { renderAddEntry } from "./renderAddEntry.js"
 import { renderEditEntry } from "./renderEditEntry.js"
 export function renderJournal() {
     const page = document.getElementById("page")
-    const title = document.createElement('h3')
+    const title = document.createElement('h1')
     title.textContent = "Journal"
+    title.classList.add('title')
 
 
     const journalSection = document.createElement('div')
@@ -19,10 +20,12 @@ export function renderJournal() {
           
     catImageGif.src = " https://i.gifer.com/ICtO.gif"
     catImageGif.style.width = '300px'
+    catImageGif.classList.add('cat-gif')
  
 
 
-
+    const overview = document.createElement('div')
+    overview.classList.add('entry-container')
     journalSection.appendChild(entrybutton)
     page.replaceChildren(title,catImageGif,journalSection)
 
@@ -33,6 +36,7 @@ export function renderJournal() {
 
             const {title,journal_entry, date_entered} = entry
             const div1 = document.createElement('div')
+            div1.classList.add('div-for-entries')
 
             const entry_title = document.createElement('h3')
             entry_title.textContent = title
@@ -57,7 +61,9 @@ export function renderJournal() {
             div1.appendChild(entry_date)
             div1.appendChild(journal_description)
             div1.appendChild(editButton)
-            page.appendChild(div1)
+            
+            overview.appendChild(div1)
+            page.appendChild(overview)
 
 
 

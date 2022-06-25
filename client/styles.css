@@ -95,7 +95,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center; 
-
+    align-items: center;
 }
 
 /* Premade habits' card */
@@ -127,8 +127,34 @@
 
 .journal-section {
     height: 90px;
+    margin: auto;
+    text-align: center;
+    
 }
 
+.entry-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; 
+}
+.div-for-entries {
+    margin: 10px;
+    width: 250px;
+    border: 2px solid black;
+    padding: 10px;
+    display: inline-block;
+    border-radius: 25px;
+}
+.title {
+    text-align: center;
+}
+.cat-gif {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
 #journal-description {
     width: 100%;
     height: 150px;
@@ -221,3 +247,6 @@ input[type="checkbox"]:checked {
 #nav-buttons {
     transition: all 1s;
 }
+
+/* css for the journal page */
+
