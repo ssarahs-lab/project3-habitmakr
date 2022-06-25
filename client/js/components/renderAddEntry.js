@@ -5,11 +5,11 @@ export function renderAddEntry() {
 
     const journalForm = document.createElement('form')
     journalForm.innerHTML = `
-    <label for="title"> Title </label> <br>
-    <input type="text" name="title"> <br>
-    <label for="entry"> Entry </label> <br>
-    <textarea type="text" name="entry" rows="10"></textarea> <br>
-    <button class="btn"> Enter </button> 
+    <label for="title" class="animate__animated animate__fadeIn"> Title </label> <br>
+    <input type="text" name="title" class="animate__animated animate__fadeIn"> <br>
+    <label for="entry" class="animate__animated animate__fadeIn"> Entry </label> <br>
+    <textarea type="text" name="entry" rows="10"class="animate__animated animate__fadeIn"></textarea> <br>
+    <button class="btn" class="animate__animated animate__fadeIn"> Enter </button> 
     `
     page.replaceChildren(journalForm)
 

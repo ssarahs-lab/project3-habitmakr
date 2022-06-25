@@ -17,6 +17,9 @@ export function renderCategoriesList(){
     let h2 = document.createElement('h2')
     h2.textContent = "Choose a premade habit"
     h2.classList.add("text-center")
+    
+           h2.classList.add("animate__animated");
+            h2.classList.add("animate__fadeIn")
 
     page.appendChild(h2)
 
@@ -35,9 +38,13 @@ export function renderCategoriesList(){
             let img = document.createElement('img');
             let habitContainer = document.createElement('div')
 
+
          
             divCard.classList.add("card")
             divCard.classList.add("divCard")
+
+            divCard.classList.add("animate__animated");
+            divCard.classList.add("animate__fadeIn")
 
             divCard.style.backgroundImage = `url('${category.image_related_identity_url}')`
 
