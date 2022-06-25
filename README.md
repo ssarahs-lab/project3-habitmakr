@@ -1,4 +1,9 @@
-HabitMakr - where big things come from small beginnings
+
+
+![enter image description here](https://i.imgur.com/HXqOkGT.png)
+
+Live site link: [here](https://habitmakr.herokuapp.com/)
+
 
 
 ## Technologies used
@@ -31,12 +36,10 @@ In the terminal:
     npm install nodemon
     npm install pg 
     npm install express-sessiom
-    npm start  // or npm run start:dev
-
+    npm start // or npm run start:dev
 
 
 ## Installation instructions (if database has changed)
-
 Locally: 
 
 
@@ -46,7 +49,7 @@ Locally:
 	
 Then restart local server:
 
-    npm start  // or npm run start:dev
+    npm start
 
 On Heroku: 
 
@@ -62,6 +65,3 @@ heroku pg:push habit_tracker DATABASE_URL
 ```
 
 ## Unsolved problems
-
-
-
