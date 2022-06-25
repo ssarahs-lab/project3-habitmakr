@@ -4,7 +4,7 @@
 
 Live site link: [here](https://habitmakr.herokuapp.com/)
 
-
+This group project was made as part of our learning in the General Assembly Software Engineering Flex Immersive Course. 
 
 ## Technologies used
 Javascript, AJAX, NodeJS, ExpressJS, PostgreSQL client, PostgresQL
