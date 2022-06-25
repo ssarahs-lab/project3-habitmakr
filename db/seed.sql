@@ -31,3 +31,69 @@ INSERT INTO habits_list (habit, type, identities_id) VALUES ('Set aside money fo
 INSERT INTO habits_list (habit, type, identities_id) VALUES ('Make a tax plan with accountant.', true, 5);
 INSERT INTO habits_list (habit, type, identities_id) VALUES ('Meet with a financial planner.', true, 5);
 
+--fake user
+
+--user
+INSERT INTO users(id, username, email, password_hash) VALUES (3, 'Ed Test', 'test@test.com', '$2b$10$naZA9QykpAH8mfKrHIWX4.nqJklAyQqYBN0gHKMZt7Zg9DLmB.P92')
+
+--tracked habit
+INSERT INTO user_habits (habit_name, user_determined_frequency_of_reminder, user_id) VALUES('Exercise at 80% of mx HR for 10 mins.', 'Daily', 3);
+INSERT INTO user_habits (habit_name, user_determined_frequency_of_reminder, user_id) VALUES('Avoid junk food', 'Daily', 3);
+INSERT INTO user_habits (habit_name, user_determined_frequency_of_reminder, user_id) VALUES('Exercise at 80% of mx HR for 10 mins.', 'Daily', 3);
+INSERT INTO user_habits (habit_name, user_determined_frequency_of_reminder, user_id) VALUES('Write a book review for 10 minutes.', 'Daily', 3);
+INSERT INTO user_habits (habit_name, user_determined_frequency_of_reminder, user_id) VALUES('Wake up early.', 'Daily', 3);
+
+-- habit log
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Exercise at 80% of mx HR for 10 mins.', '2022-06-10 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Avoid junk food.', '2022-06-10 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Write a book review for 10 minutes.', '2022-06-10 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Make a tax plan with accountant.', '2022-06-10 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Wake up early.', '2022-06-10 10:33:08.76486', 3);
+
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Exercise at 80% of mx HR for 10 mins.', '2022-06-11 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Avoid junk food.', '2022-06-11 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Write a book review for 10 minutes.', '2022-06-11 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Make a tax plan with accountant.', '2022-06-11 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Wake up early.', '2022-06-11 10:33:08.76486', 3);
+
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Exercise at 80% of mx HR for 10 mins.', '2022-06-14 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Avoid junk food.', '2022-06-14 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Write a book review for 10 minutes.', '2022-06-14 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Make a tax plan with accountant.', '2022-06-14 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Wake up early.', '2022-06-14 10:33:08.76486', 3);
+
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Exercise at 80% of mx HR for 10 mins.', '2022-06-15 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Avoid junk food.', '2022-06-15 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Write a book review for 10 minutes.', '2022-06-15 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Make a tax plan with accountant.', '2022-06-15 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Wake up early.', '2022-06-15 10:33:08.76486', 3);
+
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Exercise at 80% of mx HR for 10 mins.', '2022-06-16 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Avoid junk food.', '2022-06-16 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Write a book review for 10 minutes.', '2022-06-16 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Make a tax plan with accountant.', '2022-06-16 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Wake up early.', '2022-06-16 10:33:08.76486', 3);
+
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Exercise at 80% of mx HR for 10 mins.', '2022-06-18 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Avoid junk food.', '2022-06-18 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Write a book review for 10 minutes.', '2022-06-18 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Make a tax plan with accountant.', '2022-06-18 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Wake up early.', '2022-06-18 10:33:08.76486', 3);
+
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Exercise at 80% of mx HR for 10 mins.', '2022-06-22 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Avoid junk food.', '2022-06-22 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Write a book review for 10 minutes.', '2022-06-22 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Make a tax plan with accountant.', '2022-06-22 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Wake up early.', '2022-06-22 10:33:08.76486', 3);
+
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Exercise at 80% of mx HR for 10 mins.', '2022-06-23 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Avoid junk food.', '2022-06-23 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Write a book review for 10 minutes.', '2022-06-23 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Make a tax plan with accountant.', '2022-06-23 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Wake up early.', '2022-06-23 10:33:08.76486', 3);
+
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Exercise at 80% of mx HR for 10 mins.', '2022-06-24 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Avoid junk food.', '2022-06-24 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Write a book review for 10 minutes.', '2022-06-24 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Make a tax plan with accountant.', '2022-06-24 10:33:08.76486', 3);
+INSERT INTO user_habit_log (habit_name, time_completed, user_id) VALUES ('Wake up early.', '2022-06-24 10:33:08.76486', 3);
