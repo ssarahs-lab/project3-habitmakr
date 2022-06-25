@@ -6,7 +6,7 @@ export function loginPage() {
     const page = document.getElementById('page')
     page.innerHTML = ""
     page.innerHTML = `
-    <form id="login-form" class="form-control w-50 m-auto">
+    <form id="login-form" class="border-0 animate__animated animate__fadeIn form-control w-50 m-auto">
         <h1>Login</h1>
         <p>Email:</p>
         <input type="text" name="email" class="form-control">
@@ -67,8 +67,11 @@ export function signupPage() {
     //render signup form
     const page = document.getElementById('page')
     page.innerHTML = ""
+    page.classList.add("animate__animated");
+    page.classList.add("animate__fadeIn")
+
     page.innerHTML = `
-    <form id="sign-up-form" class="form-control w-50 m-auto">
+    <form id="sign-up-form" class="border-0 animate__animated animate__fadeIn form-control w-50 m-auto">
         <h1>Sign Up</h1>
         <p>Username:</p>
         <input type="text" name="username" class="form-control">
@@ -152,8 +155,8 @@ export function handleLogout() {
             loginBtn.style.display = 'block'
             signupBtn.style.display = 'block'
 
-            page.innerHTML = `<h1>Logged out successfully</h1> 
-                                <h3> Page will now redirect.. </h3>`
+            page.innerHTML = `<h1 class="animate__animated animate__fadeIn">Logged out successfully</h1> 
+                                <h3 class="animate__animated animate__fadeIn"> Page will now redirect.. </h3>`
 
                             
 

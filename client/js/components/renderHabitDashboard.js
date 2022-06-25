@@ -22,6 +22,8 @@ export function renderHabitDashboard(){
     const masterListHeading = document.createElement("h3");
     masterListHeading.textContent = "Current Habits"
     currentHabitsContainer.appendChild(masterListHeading)
+    masterListHeading.classList.add("animate__animated");
+    masterListHeading.classList.add("animate__fadeIn")
 
     axios
     .get("api/userhabits")
@@ -32,16 +34,23 @@ export function renderHabitDashboard(){
             let habitDashboardDiv = document.createElement('div');
             habitDashboardDiv.classList.add("habitDashboardDiv")
 
+           
+
             let tableRow = document.createElement('tr');
             let habitNameCell = document.createElement('td');
             let reminderFrequencyCell = document.createElement('td');
             let completedCell = document.createElement('td')
             let completedBtn = document.createElement('button')
             
-
+            habitNameCell.classList.add("animate__animated");
+            habitNameCell.classList.add("animate__fadeIn")
+            reminderFrequencyCell.classList.add("animate__animated");
+           reminderFrequencyCell.classList.add("animate__fadeIn")
+            completedCell.classList.add("animate__animated");
+             completedCell.classList.add("animate__fadeIn")
 
             completedBtn.classList.add('btn')
-            completedBtn.textContent = 'Complete'
+            completedBtn.innerHTML = '<i class="fas fa-check"></i>'
                           
             currentHabitsContainer.appendChild(tableRow);
             habitNameCell.textContent = userhabit.habit_name;
@@ -57,7 +66,7 @@ export function renderHabitDashboard(){
             completedBtn.addEventListener('click', function(){
                 console.log('click')
                 completedBtn.disabled = true
-                completedBtn.textContent = 'Well done... See you tomorrow!'
+                completedBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i>'
                 let data = {
                     habit: userhabit.habit_name
                 }
@@ -65,6 +74,7 @@ export function renderHabitDashboard(){
 
                 axios.post('api/completedHabit', data)
                 .then((response) => {
+                
                 })
             })
 
@@ -73,15 +83,18 @@ export function renderHabitDashboard(){
                 //gets todays date
                 let today = moment(new Date()).format()
                 let todayDate = today.split("T")
+                
 
 
                 response.data.forEach((completedHabit) => {
-                    let completedDate = completedHabit.time_completed.split('T')
+                    //converts the backend timestamp to the users correct timezone
+                    let completedDate = (moment(new Date(completedHabit.time_completed)).format()).split('T')
                     //checks to see if todays date is the same as the day the habit was completed
                     //if there is a match, the button with be disabled until the following day
+                    
 
                     if(completedHabit.habit_name == userhabit.habit_name && completedDate[0] == todayDate[0]) {
-                        completedBtn.textContent = 'Well done... See you tomorrow!'
+                        completedBtn.innerHTML = '<i class="fa-solid fa-circle-check"></i>'
                         completedBtn.disabled = true
 
                     }

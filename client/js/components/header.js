@@ -1,7 +1,12 @@
 import {loginPage, signupPage, handleLogout, getUser} from './login_signup.js'
 import{renderCategoriesList} from './renderCategoriesList.js'
 import{renderAddHabitForm} from './addHabit.js'
+
+import { renderLandingPage } from './renderLandingPage.js'
+
+
 import { renderCalender } from './testCalender.js'
+
 import{renderHabitDashboard} from './renderHabitDashboard.js'
 
 import {renderJournal} from './renderJournal.js'
@@ -15,8 +20,11 @@ export function renderHeader() {
     let header = document.getElementById("header")
     header.innerHTML = "";
 
+    header.classList.add("animate__animated");
+           header.classList.add("animate__fadeIn")
+
     header.innerHTML = `
-        <h1 id="title" class="navbar-brand">Habit Makr</h1>
+        <img id="habitMakrLogo" src="https://i.imgur.com/EjgNg8N.png"  onclick="renderLandingPage()" />
         <p> <span id="username"></span></p>
         <div class="collapse navbar-collapse justify-content-end" id="nav-buttons">
         <button id="calender-btn" class="navbar-btn btn nav-btn"><i class=\'far fa-calendar-alt\'></i></button>
@@ -44,6 +52,9 @@ export function renderHeader() {
         `
     const loginButton = document.getElementById("login-btn");
     loginButton.addEventListener('click', loginPage)
+
+    const habitMakrLogo = document.getElementById("habitMakrLogo");
+    habitMakrLogo.addEventListener('click', renderLandingPage)
 
     const signupButton = document.getElementById("signup-btn");
     signupButton.addEventListener('click', signupPage)
