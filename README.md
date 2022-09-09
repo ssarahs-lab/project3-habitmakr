@@ -1,6 +1,6 @@
 
 
-![enter image description here](https://i.imgur.com/HXqOkGT.png)
+![enter image description here](https://i.imgur.com/kPtkAvE.gif)
 
 Live site link: [here](https://habitmakr.herokuapp.com/)
 
