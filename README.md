@@ -5,7 +5,7 @@
 
 
 
-Live site link: [here](https://habitmakr.herokuapp.com/)
+Live site link: [here](https://habitmakr.onrender.com/)
 
 This group project was made as part of our learning in the General Assembly Software Engineering Flex Immersive Course. 
 
