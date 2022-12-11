@@ -1,10 +1,13 @@
 
 
-![enter image description here](https://i.imgur.com/HXqOkGT.png)
+
+![habitmakr landing page](https://i.imgur.com/v6oeQfq.gif)
+
+
 
 Live site link: [here](https://habitmakr.herokuapp.com/)
 
-
+This group project was made as part of our learning in the General Assembly Software Engineering Flex Immersive Course. 
 
 ## Technologies used
 Javascript, AJAX, NodeJS, ExpressJS, PostgreSQL client, PostgresQL
@@ -17,6 +20,9 @@ The app builds upon concepts derived from Atomic Habits, a popular self-help gui
 Users begin by signing up to an account, and choosing some small tasks to incorporate into their routine. 
 
 The app then displays daily/weekly/monthly progress in a variety of statistics and graphs. 
+
+
+![flow of habitmakr page](https://i.imgur.com/kPtkAvE.gif)
 
 ## Installation instructions
 
